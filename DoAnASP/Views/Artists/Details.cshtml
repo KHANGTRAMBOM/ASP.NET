@@ -1,0 +1,122 @@
+﻿@model DoAnASP.Models.Artist
+
+@{
+    ViewData["Title"] = "Artist Details";
+    int count = 1;
+}
+
+<link rel="stylesheet" href="~/css/Artist/artist-detail.css" asp-append-version="true" />
+
+<div class="artist-view-container">
+    <!-- Artist Header -->
+    <div class="artist-view-header">
+        <div class="artist-view-cover">
+            @if (Model.Avatar != null)
+            {
+                <img class="artist-avatar" src="/artists/@Model.Avatar" alt="@Model.Name" />
+            }
+            else
+            {
+                <i class="bi bi-person-circle"></i>
+            }
+        </div>
+        <div class="artist-view-info">
+            <span class="artist-view-label">Artist</span>
+            <h1 class="artist-view-title">@Model.Name</h1>
+            <div class="artist-view-meta">
+                @if (Model.IsVerified)
+                {
+                    <span class="artist-view-verified">
+                        <i class="bi bi-check-circle-fill"></i> Verified Artist
+                    </span>
+                }
+                <span class="artist-view-bullet">•</span>
+                <span class="artist-view-stats">
+                    @Model.Songs.Count() bài hát,
+                    @{
+                        var totalSeconds = Model.Songs.Sum(s => s.Duration);
+                        var hours = Math.Floor((decimal)totalSeconds / 3600);
+                        var minutes = Math.Floor(((decimal)totalSeconds % 3600) / 60);
+                        var seconds = totalSeconds % 60;
+                    }
+                    @(hours > 0 ? $"{hours} giờ " : "")@minutes phút @seconds giây
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Artist Controls -->
+    <div class="artist-view-controls">
+        <!-- Add any additional controls here -->
+    </div>
+
+
+
+    <h1 class="artist-view-title">Danh Sách Albums</h1>
+
+        <!-- Album Table -->
+    <div class="artist-view-albums-table">
+        <div class="artist-view-albums-header">
+            <div class="artist-view-album-title">Album</div>
+        </div>
+
+        <div class="artist-view-albums-list">
+            @foreach (var album in Model.Albums.OrderBy(a => a.ReleaseDate))
+            {
+                <div class="artist-view-album-row" data-id="@album.AlbumID">
+                    <div class="artist-view-album-cover">
+                        <img src="/coverarts/@album.CoverArt" alt="@album.Title" width="100" height="100" />
+                    </div>
+                    <div class="artist-view-album-info">
+                        <span class="artist-view-album-name">@album.Title</span>
+                        <span class="artist-view-album-release">@album.ReleaseDate.ToString("dd/MM/yyyy")</span>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+
+    <h1 class="artist-view-title">Danh Sách Bài Hát</h1>
+
+
+    <!-- Songs Table -->
+    <div class="artist-view-songs-table">
+        <div class="artist-view-songs-header">
+            <div class="artist-view-song-number">#</div>
+            <div class="artist-view-song-title">Tiêu đề</div>
+            <div class="artist-view-song-album">Album</div>
+            <div class="artist-view-song-duration">
+                <i class="bi bi-clock"></i>
+            </div>
+        </div>
+
+        <div class="artist-view-songs-list">
+            @foreach (var song in Model.Songs.OrderBy(s => s.Title))
+            {
+                <div class="artist-view-song-row" data-id="@song.SongID" data-audio="/audios/@song.AudioFile">
+                    <div class="artist-view-song-number">
+                      @(count++)
+                    </div>
+                    <div class="artist-view-song-title">
+                        <img src="/pictures/@song.Image" alt="@song.Title" width="50" height="50" />
+                        <div class="artist-view-song-info">
+                            <span class="artist-view-song-name">@song.Title</span>
+                        </div>
+                    </div>
+                    <div class="artist-view-song-album">@song.Album.Title</div>
+                    <div class="artist-view-song-duration">
+                        @{
+                            var minutes2 = Math.Floor((decimal)song.Duration / 60);
+                            var seconds2 = song.Duration % 60;
+                        }
+                        @(minutes2):@(seconds2.ToString("D2"))
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+
+    <div style="height:100px"></div>
+</div>

@@ -1,0 +1,75 @@
+﻿@model DoAnASP.Models.Follow
+
+@{
+    ViewData["Title"] = "Chi tiết lượt theo dõi";
+}
+
+<link rel="stylesheet" href="~/css/Follow/custom-styles.css">
+
+<div class="container-fluid py-5 bg-gradient">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-gradient-primary text-white py-3">
+                    <div class="d-flex align-items-center">
+                        <i class="bi bi-people-fill me-2 fs-4"></i>
+                        <h3 class="card-title mb-0">@ViewData["Title"]</h3>
+                    </div>
+                </div>
+                <div class="card-body p-4">
+                    <div class="info-group">
+                        <div class="info-item">
+                            <div class="d-flex align-items-center mb-4">
+                                <i class="bi bi-calendar-event text-primary me-3 fs-4"></i>
+                                <div>
+                                    <label class="text-muted small">@Html.DisplayNameFor(model => model.CreatedAt)</label>
+                                    <p class="mb-0 fw-bold">@Html.DisplayFor(model => model.CreatedAt)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="d-flex align-items-center mb-4">
+                                <i class="bi bi-person-circle text-primary me-3 fs-4"></i>
+                                <div>
+                                    <label class="text-muted small">@Html.DisplayNameFor(model => model.Follower)</label>
+                                    <p class="mb-0 fw-bold">@Html.DisplayFor(model => model.Follower.UserName)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="d-flex align-items-center mb-4">
+                                <i class="bi bi-person-check-fill text-primary me-3 fs-4"></i>
+                                <div>
+                                    <label class="text-muted small">@Html.DisplayNameFor(model => model.Followed)</label>
+                                    <p class="mb-0 fw-bold">@Html.DisplayFor(model => model.Followed.UserName)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer bg-light py-3">
+                    <div class="d-flex justify-content-between">
+                        <a asp-action="Edit" 
+                           asp-route-followerId="@Model.FollowerID" 
+                           asp-route-followedId="@Model.FollowedID" 
+                           class="btn btn-primary d-flex align-items-center">
+                            <i class="bi bi-pencil me-2"></i>
+                            <span>Chỉnh sửa</span>
+                        </a>
+                        <a asp-action="Index" class="btn btn-outline-secondary d-flex align-items-center">
+                            <i class="bi bi-arrow-left me-2"></i>
+                            <span>Trở về trang chủ</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Add Bootstrap Icons CSS in your layout or this page -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">

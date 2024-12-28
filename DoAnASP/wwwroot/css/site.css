@@ -1,0 +1,406 @@
+.no-results {
+    text-align: center;
+    color: #6c757d; /* Màu xám nhạt */
+    font-style: italic;
+    font-size: 1.2rem;
+    margin-top: 20px;
+}
+
+.details-link2.playlist-item {
+    display: flex; /* Sử dụng flex để căn chỉnh các phần tử bên trong */
+    align-items: center; /* Căn chỉnh các phần tử dọc theo trục chính */
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    margin-bottom: 20px; /* Thêm khoảng cách dưới mỗi item */
+}
+
+    .details-link2.playlist-item:hover {
+        background-color: #242424; /* Màu nền khi hover */
+    }
+
+/* Container cho biểu tượng playlist */
+.playlist-icon {
+    width: 50px; /* Chiều rộng cố định */
+    height: 50px; /* Chiều cao cố định */
+    border-radius: 8px; /* Độ cong cho các góc */
+    overflow: hidden; /* Cắt các phần tử vượt quá giới hạn */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+    background-color: #d8d8d8; /* Màu nền mặc định */
+}
+
+    .playlist-icon img {
+        width: 100%; /* Đảm bảo hình ảnh bao phủ hết container */
+        height: 100%; /* Đảm bảo hình ảnh bao phủ hết container */
+        object-fit: cover; /* Cắt ảnh nếu cần để không bị vỡ */
+        border-radius: 8px; /* Giữ bo góc hình ảnh */
+    }
+
+    .playlist-icon i {
+        font-size: 24px;
+        color: #333;
+    }
+
+/* Thông tin playlist */
+.playlist-info {
+    flex-grow: 1;
+}
+
+.playlist-title {
+    font-size: 25px;
+    font-weight: 700;
+    color: #1CC95A;
+    margin-bottom: 2px;
+}
+
+.playlist-subtitle {
+    font-size: 20px;
+    color: #B3B3B3;
+}
+
+
+/* Nếu muốn phần hình ảnh là vuông, có thể đảm bảo chiều rộng và chiều cao bằng nhau */
+.details-link2.playlist-item img {
+    width: 50px; /* Kích thước vuông */
+    height: 50px; /* Kích thước vuông */
+    object-fit: cover; /* Đảm bảo hình ảnh không bị méo và vừa với khung */
+}
+
+
+
+/* Footer styles */
+.footer {
+    background-color: #121212;
+    color: #b3b3b3;
+    padding: 40px 0;
+    font-size: 14px;
+}
+
+    .footer .container {
+        background-color: #121212;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer .row {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        max-width: 1200px;
+        margin-bottom: 30px;
+    }
+
+.footer-column {
+    flex: 1;
+    margin: 0 10px;
+}
+
+    .footer-column h3 {
+        color: #fff;
+        margin-bottom: 15px;
+    }
+
+    .footer-column ul {
+        list-style: none;
+        padding: 0;
+    }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+            .footer-column ul li a {
+                color: #b3b3b3;
+                text-decoration: none;
+            }
+
+                .footer-column ul li a:hover {
+                    text-decoration: underline;
+                }
+
+.footer-bottom {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #b3b3b3;
+    padding-top: 20px;
+}
+
+    .footer-bottom ul {
+        list-style: none;
+        display: flex;
+        gap: 15px;
+        padding: 0;
+        margin: 0;
+    }
+
+        .footer-bottom ul li {
+            margin: 0;
+        }
+
+            .footer-bottom ul li a {
+                color: #b3b3b3;
+                text-decoration: none;
+            }
+
+                .footer-bottom ul li a:hover {
+                    text-decoration: underline;
+                }
+
+    .footer-bottom p {
+        margin: 0;
+    }
+
+.social-icons a {
+    color: #b3b3b3;
+    text-decoration: none;
+    font-size: 20px;
+    margin-left: 15px;
+}
+
+    .social-icons a:hover {
+        color: #1db954;
+    }
+
+
+
+
+/* Create-playlist styles */
+.create-playlist {
+    background-color: #1c1c1c; /* Màu nền tương ứng */
+    color: white; /* Màu chữ */
+    padding: 20px; /* Khoảng cách bên trong */
+    border-radius: 10px; /* Bo góc cho các cạnh */
+    width: 350px; /* Độ rộng của phần tử */
+    text-align: left; /* Canh lề trái */
+}
+
+    .create-playlist h5 {
+        font-size: 18px; /* Kích thước chữ cho tiêu đề h5 */
+        margin-bottom: 10px; /* Khoảng cách dưới tiêu đề */
+    }
+
+    .create-playlist h6 {
+        font-size: 14px; /* Kích thước chữ cho tiêu đề h6 */
+        margin-bottom: 20px; /* Khoảng cách dưới tiêu đề */
+    }
+
+.create-playlist-button {
+    display: inline-block; /* Đảm bảo thẻ a có dạng block */
+    background-color: white; /* Màu nền cho nút */
+    color: black; /* Màu chữ cho nút */
+    border: none; /* Loại bỏ viền cho nút */
+    padding: 10px 20px; /* Khoảng cách bên trong nút */
+    border-radius: 20px; /* Bo góc cho nút */
+    cursor: pointer; /* Thay đổi con trỏ khi di chuyển vào nút */
+    font-size: 14px; /* Kích thước chữ cho nút */
+    text-align: center; /* Canh giữa nội dung */
+    text-decoration: none; /* Loại bỏ gạch chân mặc định */
+}
+
+    .create-playlist-button:hover {
+        background-color: #e6e6e6; /* Màu nền khi di chuột vào */
+    }
+
+
+
+/* Nút xóa playlist */
+
+.delete-playlist-button {
+    display: inline-flex; /* Đảm bảo thẻ a có thể chứa biểu tượng và văn bản */
+    align-items: center; /* Căn giữa nội dung theo chiều dọc */
+    background-color: #ff4d4d; /* Màu nền cho nút xóa (đỏ nhạt) */
+    color: white; /* Màu chữ cho nút */
+    border: none; /* Loại bỏ viền */
+    padding: 10px 20px; /* Khoảng cách bên trong nút */
+    border-radius: 25px; /* Bo góc cho nút */
+    cursor: pointer; /* Thay đổi con trỏ khi di chuột vào nút */
+    font-size: 14px; /* Kích thước chữ cho nút */
+    transition: all 0.3s ease; /* Hiệu ứng chuyển tiếp mượt mà khi thay đổi */
+    text-decoration: none; /* Loại bỏ gạch chân mặc định */
+    margin: 0 5px; /* Khoảng cách giữa các nút */
+}
+
+    .delete-playlist-button i {
+        margin-right: 8px; /* Khoảng cách giữa biểu tượng và văn bản */
+    }
+
+    .delete-playlist-button:hover {
+        background-color: #e60000; /* Màu nền khi di chuột vào (đỏ đậm) */
+    }
+
+    .delete-playlist-button:active {
+        background-color: #cc0000; /* Màu nền khi nhấn */
+    }
+
+
+
+
+
+
+/* dropdown */
+
+.dropdown-menu {
+    display: none; /* Ẩn mặc định */
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    margin-top: 10px; /* Khoảng cách từ nút đến dropdown */
+    padding: 10px;
+    z-index: 1000;
+}
+
+    .dropdown-menu a {
+        display: block;
+        padding: 8px 16px;
+        color: black;
+        text-decoration: none;
+    }
+
+        .dropdown-menu a:hover {
+            background-color: #f1f1f1;
+        }
+
+
+
+
+/* Trang detail */
+
+.song-details-container {
+    background: linear-gradient(180deg, #1e3a8a 0%, #0f172a 100%);
+    min-height: 100vh;
+    color: #fff;
+    padding: 2rem 0;
+    overflow: hidden;
+}
+
+.scrollable-content {
+    max-height: calc(100vh - 2rem);
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+    /* Customize scrollbar */
+    .scrollable-content::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .scrollable-content::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+    }
+
+    .scrollable-content::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 255, 255, 0.3);
+        border-radius: 4px;
+    }
+
+        .scrollable-content::-webkit-scrollbar-thumb:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+.album-cover {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+}
+
+.artist-avatar {
+    width: 28px;
+    height: 28px;
+    object-fit: cover;
+}
+
+.artist-name {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.btn-play {
+    background-color: #1DB954;
+    color: #000;
+    padding: 0.75rem 2rem;
+    border-radius: 500px;
+    font-weight: 600;
+    font-size: 1rem;
+    border: none;
+    transition: all 0.2s;
+}
+
+    .btn-play:hover {
+        background-color: #1ed760;
+        transform: scale(1.04);
+    }
+
+.btn-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: transparent;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+    .btn-icon:hover {
+        background: rgba(255,255,255,0.1);
+        color: #fff;
+        transform: scale(1.04);
+    }
+
+.dropdown-menu-dark {
+    background: #282828;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 4px;
+    box-shadow: 0 16px 24px rgba(0,0,0,0.3);
+}
+
+.dropdown-item {
+    color: #fff;
+    border-radius: 2px;
+    padding: 0.75rem 1rem;
+}
+
+    .dropdown-item:hover {
+        background: rgba(255,255,255,0.1);
+        color: #fff;
+    }
+
+h1 {
+    color: #fff;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+
+
+@media (max-width: 768px) {
+    .album-cover {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .controls-section {
+        justify-content: center;
+    }
+}
+
+

@@ -1,0 +1,53 @@
+﻿@model DoAnASP.Models.Album
+
+@{
+    ViewData["Title"] = "Delete Album";
+}
+
+<div class="container py-4">
+    <div class="card shadow-sm border-danger">
+        <div class="card-header bg-danger text-white">
+            <h4 class="card-title mb-0">Xác nhận xóa</h4>
+        </div>
+        <div class="card-body">
+            <div class="alert alert-warning">
+                <i class="bi bi-exclamation-triangle me-2"></i>
+                Bạn có chắc muốn xóa album này chứ ?
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 text-center mb-3">
+                    <img src="/coverarts/@Model.CoverArt" class="img-fluid rounded shadow" alt="@Model.Title cover" />
+                </div>
+                <div class="col-md-8">
+                    <dl class="row">
+                        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Title)</dt>
+                        <dd class="col-sm-9">@Html.DisplayFor(model => model.Title)</dd>
+
+                        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.ReleaseDate)</dt>
+                        <dd class="col-sm-9">@Html.DisplayFor(model => model.ReleaseDate)</dd>
+
+                        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Artist)</dt>
+                        <dd class="col-sm-9">@Html.DisplayFor(model => model.Artist.Name)</dd>
+
+                        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Genre)</dt>
+                        <dd class="col-sm-9">@Html.DisplayFor(model => model.Genre.Name)</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <form asp-action="Delete" class="d-flex justify-content-between">
+                <input type="hidden" asp-for="AlbumID" />
+                <a asp-action="Index" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-left me-2"></i>Trở về trang chủ
+                </a>
+                <button type="submit" class="btn btn-danger">
+                    <i class="bi bi-trash me-2"></i>Xóa
+                </button>
+            </form>
+        </div>
+    </div>
+    <div style="height: 50px">
+    </div>
+</div>

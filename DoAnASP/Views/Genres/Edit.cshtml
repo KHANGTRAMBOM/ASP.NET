@@ -1,0 +1,51 @@
+﻿@model DoAnASP.Models.Genre
+
+@{
+    ViewData["Title"] = "Edit Genre";
+}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+<link rel="stylesheet" href="~/css/Gerne/custom-styles -details.css">
+
+<div class="container py-5 bg-gradient">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg border-0 genre-card">
+                <div class="card-header bg-gradient-primary text-white py-3">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <i class="bi bi-pencil-square me-2 fs-4"></i>
+                        <h2 class="card-title mb-0">Chỉnh Sửa Thể Loại</h2>
+                    </div>
+                </div>
+                <div class="card-body p-4">
+                    <form asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+                        <input type="hidden" asp-for="GenreID" />
+
+                        <div class="mb-4">
+                            <label asp-for="Name" class="form-label text-muted fw-bold">Tên Thể Loại</label>
+                            <input asp-for="Name" class="form-control" placeholder="Nhập tên thể loại" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-grid gap-3">
+                            <button type="submit" class="btn btn-primary d-flex align-items-center justify-content-center">
+                                <i class="bi bi-check-circle me-2"></i>
+                                <span>Lưu thay đổi</span>
+                            </button>
+                            <a asp-action="Index" class="btn btn-outline-secondary d-flex align-items-center justify-content-center">
+                                <i class="bi bi-arrow-left me-2"></i>
+                                <span>Trở về trang chủ</span>
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

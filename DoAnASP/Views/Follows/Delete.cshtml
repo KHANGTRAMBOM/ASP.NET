@@ -1,0 +1,85 @@
+﻿@model DoAnASP.Models.Follow
+
+@{
+    ViewData["Title"] = "Xóa lượt theo dõi";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm border-danger">
+                <div class="card-header bg-danger text-white">
+                    <h3 class="card-title mb-0">@ViewData["Title"]</h3>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-warning" role="alert">
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                        Bạn có thực sự muốn xóa lượt theo dõi này không
+                    </div>
+
+                    <dl class="row">
+                        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.CreatedAt)</dt>
+                        <dd class="col-sm-9">@Html.DisplayFor(model => model.CreatedAt)</dd>
+
+                        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Follower)</dt>
+                        <dd class="col-sm-9">@Html.DisplayFor(model => model.Follower.UserName)</dd>
+
+                        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Followed)</dt>
+                        <dd class="col-sm-9">@Html.DisplayFor(model => model.Followed.UserName)</dd>
+                    </dl>
+
+                    <form asp-action="Delete" class="mt-4">
+                        <input type="hidden" asp-for="FollowerID" />
+                        <input type="hidden" asp-for="FollowedID" />
+                        <div class="d-flex justify-content-between">
+                            <button type="submit" class="btn btn-danger">
+                                <i class="bi bi-trash-fill me-2"></i>Xóa
+                            </button>
+                            <a asp-action="Index" class="btn btn-secondary">
+                                <i class="bi bi-arrow-left me-2"></i>Trở về trang chủ 
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .container {
+        max-width: 800px;
+    }
+
+    .card {
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-header {
+        border-bottom: none;
+    }
+
+    .btn {
+        transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+
+    .alert {
+        border-radius: 10px;
+    }
+
+    dt {
+        font-weight: 600;
+    }
+</style>
+

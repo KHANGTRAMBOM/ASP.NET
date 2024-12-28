@@ -1,0 +1,71 @@
+﻿@page
+@model LoginModel
+
+@{
+    Layout = "_Layout_Login_Register";
+    ViewData["Title"] = "Trang Đăng Nhập";
+}
+
+<div class="login-container">
+    <h1>Đăng Nhập</h1>
+
+    <form id="account" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+        <div class="mb-4">
+            <input asp-for="Input.Email" class="form-control"
+                   placeholder="Email của bạn" autocomplete="username" />
+            <span asp-validation-for="Input.Email" class="text-danger"></span>
+        </div>
+
+        <div class="mb-4">
+            <input asp-for="Input.Password" class="form-control"
+                   placeholder="Mật khẩu" autocomplete="current-password" />
+            <span asp-validation-for="Input.Password" class="text-danger"></span>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="remember-me">
+                <label class="form-check-label" for="remember-me">
+                    Ghi nhớ đăng nhập
+                </label>
+            </div>
+            <a href="./ForgotPassword" class="text-white text-decoration-none hover-underline">
+                Quên mật khẩu?
+            </a>
+        </div>
+
+        <button type="submit" class="btn btn-login">Đăng nhập</button>
+
+        @if ((Model.ExternalLogins?.Count ?? 0) > 0)
+        {
+            <div class="divider">
+                <span>hoặc</span>
+            </div>
+
+            <form id="external-account" asp-page="./ExternalLogin"
+                  asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                @foreach (var provider in Model.ExternalLogins!)
+                {
+                    @if (provider.Name.ToLower() == "facebook" || provider.Name.ToLower() == "twitter")
+                    {
+                        <button type="submit" class="social-btn"
+                                name="provider" value="@provider.Name">
+                            <i class="bi bi-@(provider.Name.ToLower()) me-2"></i>
+                            Đăng nhập với @provider.DisplayName
+                        </button>
+                    }
+                }
+            </form>
+        }
+    </form>
+
+    <div class="text-center mt-4">
+        <small class="text-white-50">© 2023 Trang Đăng Nhập. Đã đăng ký bản quyền</small>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

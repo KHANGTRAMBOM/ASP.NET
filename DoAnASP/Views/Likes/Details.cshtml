@@ -1,0 +1,135 @@
+﻿@model DoAnASP.Models.Like
+
+@{
+    ViewData["Title"] = "Chi tiết lượt thích";
+}
+
+<div class="container-fluid py-5 bg-gradient">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-gradient-primary text-white py-3">
+                    <div class="d-flex align-items-center">
+                        <i class="bi bi-heart-fill me-2 fs-4"></i>
+                        <h3 class="card-title mb-0">@ViewData["Title"]</h3>
+                    </div>
+                </div>
+                <div class="card-body p-4">
+                    <div class="info-group">
+                        <div class="info-item">
+                            <div class="d-flex align-items-center mb-4">
+                                <i class="bi bi-clock-history text-primary me-3 fs-4"></i>
+                                <div>
+                                    <label class="text-muted small">@Html.DisplayNameFor(model => model.CreatedAt)</label>
+                                    <p class="mb-0 fw-bold">@Html.DisplayFor(model => model.CreatedAt)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="d-flex align-items-center mb-4">
+                                <i class="bi bi-person-circle text-primary me-3 fs-4"></i>
+                                <div>
+                                    <label class="text-muted small">@Html.DisplayNameFor(model => model.User)</label>
+                                    <p class="mb-0 fw-bold">@Html.DisplayFor(model => model.User.UserName)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="d-flex align-items-center mb-4">
+                                <i class="bi bi-music-note-beamed text-primary me-3 fs-4"></i>
+                                <div>
+                                    <label class="text-muted small">@Html.DisplayNameFor(model => model.Song)</label>
+                                    <p class="mb-0 fw-bold">@Html.DisplayFor(model => model.Song.Title)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer bg-light py-3">
+                    <div class="d-flex justify-content-between">
+                        <a asp-action="Edit" asp-route-userId="@Model.UserID" asp-route-songId="@Model.SongID" 
+                           class="btn btn-primary d-flex align-items-center">
+                            <i class="bi bi-pencil me-2"></i>
+                            <span>Chỉnh sửa</span>
+                        </a>
+                        <a asp-action="Index" class="btn btn-outline-secondary d-flex align-items-center">
+                            <i class="bi bi-arrow-left me-2"></i>
+                            <span>Trở về trang chủ</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .bg-gradient {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        min-height: 100vh;
+    }
+
+    .bg-gradient-primary {
+        background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+    }
+
+    .card {
+        border-radius: 1rem;
+        overflow: hidden;
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    .info-group {
+        padding: 1rem;
+    }
+
+    .info-item {
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        transition: background-color 0.2s ease-in-out;
+    }
+
+    .info-item:hover {
+        background-color: rgba(13, 110, 253, 0.05);
+    }
+
+    .btn {
+        padding: 0.5rem 1.5rem;
+        border-radius: 0.5rem;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+        border: none;
+    }
+
+    .btn-outline-secondary:hover {
+        background: linear-gradient(135deg, #6c757d 0%, #5c636a 100%);
+        color: white;
+        border-color: transparent;
+    }
+
+    .text-primary {
+        color: #0d6efd !important;
+    }
+
+    .card-header .bi {
+        font-size: 1.5rem;
+    }
+
+</style>
+
+<!-- Add Bootstrap Icons CSS in your layout or this page -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">

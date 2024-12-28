@@ -1,0 +1,155 @@
+﻿@model DoAnASP.Models.Artist
+
+@{
+    ViewData["Title"] = "Edit Artist";
+}
+
+<style>
+    .avatar-preview {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border: 2px solid #dee2e6;
+        border-radius: 50%;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .form-check-input:checked {
+        background-color: #0d6efd;
+        border-color: #0d6efd;
+    }
+
+    .btn-primary {
+        background-color: #0d6efd;
+        border-color: #0d6efd;
+    }
+
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+            border-color: #0a58ca;
+        }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+    }
+
+        .btn-secondary:hover {
+            background-color: #5c636a;
+            border-color: #565e64;
+        }
+
+    .edit-artist-card {
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        border-radius: 0.5rem;
+    }
+
+        .edit-artist-card .card-header {
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+    .edit-artist-form .form-label {
+        font-weight: 500;
+    }
+
+    .edit-artist-form .form-control:focus {
+        border-color: #86b7fe;
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    }
+</style>
+
+<div class="container mt-4">
+    <h1 class="mb-4">Edit Artist</h1>
+
+    <div class="row">
+        <div class="col-md-8 col-lg-6 mx-auto">
+            <div class="card edit-artist-card">
+                <div class="card-header">
+                    <h5 class="mb-0">Artist Information</h5>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Edit" enctype="multipart/form-data" class="edit-artist-form">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+                        <input type="hidden" asp-for="Id" />
+
+                        <div class="mb-3">
+                            <label asp-for="Name" class="form-label"></label>
+                            <input asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Bio" class="form-label"></label>
+                            <textarea asp-for="Bio" class="form-control" rows="4"></textarea>
+                            <span asp-validation-for="Bio" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Avatar" class="form-label">Avatar</label>
+                            <input name="AvatarUpLoad" id="AvatarUpLoad" type="file" class="form-control" accept=".jpg,.jpeg,.png" onchange="previewImage(event)">
+                            <input asp-for="Avatar" type="hidden" value="@Model.Avatar" />
+                            <span asp-validation-for="Avatar" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-4">
+                            <div class="card">
+                                <div class="card-header bg-light">
+                                    <h6 class="mb-0">Artist Avatar</h6>
+                                </div>
+                                <div class="card-body text-center">
+                                    <img id="avatarPreview" src="@(string.IsNullOrEmpty(Model.Avatar) ? "/images/default-avatar.png" : $"/artists/{Model.Avatar}")"
+                                         alt="Artist Avatar"
+                                         class="img-fluid rounded avatar-preview" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 form-check">
+                            <input class="form-check-input" asp-for="IsVerified" />
+                            <label class="form-check-label" asp-for="IsVerified">
+                                @Html.DisplayNameFor(model => model.IsVerified)
+                            </label>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="CreatedAt" class="form-label"></label>
+                            <input asp-for="CreatedAt" class="form-control" readonly />
+                            <span asp-validation-for="CreatedAt" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-save me-2"></i>Lưu thay đổi
+                            </button>
+                            <a asp-action="Index" class="btn btn-secondary">
+                                <i class="bi bi-arrow-left me-2"></i>Trở về trang chủ
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="height: 80px">
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        function previewImage(event) {
+            var reader = new FileReader();
+            reader.onload = function() {
+                var output = document.getElementById('avatarPreview');
+                output.src = reader.result;
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+}
+

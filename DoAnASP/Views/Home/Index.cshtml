@@ -1,0 +1,92 @@
+﻿@model SongsAndAlbumsViewModel
+@using DoAnASP.Controllers
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "Trang chủ";
+}
+
+@if (TempData["Message"] != null)
+{
+    <script>
+        alert('Bài hát đã có trong playlist rồi 😊😊😊😊');
+    </script>
+}
+
+<div class="spotify-app">
+    <!-- Topbar -->
+    <div class="topbar">
+        <div class="topbar-left">
+            <!-- Logo và search bar -->
+            <div class="logo-container">
+                <a href="/" class="logo-link">
+                    <img src="/pictures/logo.png" alt="Logo" class="logo-image" width="70" />
+                </a>
+                <a href="/" class="home-link">
+                    <i class="bi bi-house-door-fill"></i>
+                </a>
+            </div>
+  
+            <div class="search-bar">
+                <input type="text" placeholder="Bạn muốn nghe gì?">
+                <i class="bi bi-search"></i>
+            </div>
+        </div>
+
+        <div class="topbar-right">
+            @if (SignInManager.IsSignedIn(User))
+            {
+                @if (User.IsInRole("Manager"))
+                {
+                    <a class="premium-button" asp-controller="Songs" asp-action="Index">Quản lý</a>
+                }
+
+                <a class="premium-button details-link3" asp-controller="Home" asp-action="premium">Khám phá Premium</a>
+                <form class="profile-button" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                    <button type="submit" class="signup-button">Đăng Xuất</button>
+                </form>
+                <a class="user-button"
+                   asp-area="Identity"
+                   asp-page="/Account/Manage/Index"
+                   title="@User.Identity?.Name.Substring(0,(int)@User.Identity?.Name.IndexOf('@'))">
+                    @User.Identity?.Name.Substring(0, 1).ToUpper()
+                </a>
+            }
+            else
+            {
+                <a class="premium-button details-link3" asp-controller="Home" asp-action="premium">Khám phá Premium</a>
+                <a class="signup-button" asp-area="Identity" asp-page="/Account/Register">Đăng ký</a>
+                <a class="login-button" asp-area="Identity" asp-page="/Account/Login">Đăng nhập</a>
+            }
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+        <div class="row">
+            <div class="col-3" style="background-color: #121212">
+                <!-- Sidebar -->
+                @await Html.PartialAsync("_Sidebar")
+
+            </div>
+
+            <div class="col-9" style="background-color: #121212">
+                <!-- Main Content -->
+                @await Html.PartialAsync("_FeaturedSection", Model)
+@*                 <main class="main-content">
+                    
+                </main> *@
+            </div>
+        </div>
+    </div>
+
+    <!-- Now Playing Bar -->
+    @await Html.PartialAsync("_NowPlayingBar")
+</div>
+
+
+@section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,950 @@
+﻿:root {
+    --background-base: #121212;
+    --background-highlight: #1a1a1a;
+    --background-press: #000;
+    --background-elevated-base: #242424;
+    --background-elevated-highlight: #2a2a2a;
+    --background-tinted-base: hsla(0,0%,100%,.07);
+    --background-tinted-highlight: hsla(0,0%,100%,.1);
+    --background-tinted-press: hsla(0,0%,100%,.04);
+    --text-base: #fff;
+    --text-subdued: #a7a7a7;
+    --text-bright-accent: #1ed760;
+    --essential-base: #fff;
+    --essential-subdued: #727272;
+    --essential-bright-accent: #1ed760;
+    --decorative-base: #fff;
+    --decorative-subdued: #292929;
+}
+
+/* Đối với trình duyệt hỗ trợ Webkit */
+::-webkit-scrollbar {
+    width: 8px; /* Độ rộng của thanh cuộn */
+    background-color: #121212; /* Màu nền */
+    border-radius: 4px; /* Làm tròn góc */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #b3b3b3; /* Màu của thanh kéo */
+    border-radius: 4px; /* Làm tròn góc */
+    border: 2px solid #121212; /* Khoảng cách giữa thanh kéo và nền */
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); /* Tạo bóng cho thanh kéo */
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #959595; /* Màu khi rê chuột */
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5); /* Tạo bóng cho thanh kéo khi rê chuột */
+    }
+
+
+.col-9 {
+    overflow-y: auto;
+    max-height: 100vh;
+}
+
+    /* Tùy chỉnh scrollbar */
+    .col-9::-webkit-scrollbar {
+        width: 8px; /* Độ rộng của scrollbar */
+    }
+
+    .col-9::-webkit-scrollbar-thumb {
+        background: #444; /* Màu của thanh cuộn */
+        border-radius: 4px; /* Bo góc */
+    }
+
+        .col-9::-webkit-scrollbar-thumb:hover {
+            background: #666; /* Màu khi hover */
+        }
+
+    .col-9::-webkit-scrollbar-track {
+        background: #222; /* Màu nền của track */
+    }
+
+.sidebar-content {
+    overflow-y: auto;
+    max-height: 100vh;
+}
+
+    /* Tùy chỉnh scrollbar */
+    .sidebar-content::-webkit-scrollbar {
+        width: 8px; /* Độ rộng của scrollbar */
+    }
+
+    .sidebar-content::-webkit-scrollbar-thumb {
+        background: #444; /* Màu của thanh cuộn */
+        border-radius: 4px; /* Bo góc */
+    }
+
+        .sidebar-content::-webkit-scrollbar-thumb:hover {
+            background: #666; /* Màu khi hover */
+        }
+
+    .sidebar-content::-webkit-scrollbar-track {
+        background: #222; /* Màu nền của track */
+    }
+
+
+
+/* Base Styles */
+body {
+    margin: 0;
+    font-family: CircularSp, CircularSp-Arab, CircularSp-Hebr, CircularSp-Cyrl, CircularSp-Grek, CircularSp-Deva, "Helvetica Neue", helvetica, arial, sans-serif;
+    background: var(--background-base);
+    color: var(--text-base);
+    overflow: hidden;
+}
+
+/* Layout */
+..spotify-app {
+    display: grid;
+    grid-template-areas:
+        "topbar topbar"
+        "sidebar main"
+        "player player";
+    grid-template-columns: 250px 1fr; /* sidebar có chiều rộng cố định, phần còn lại dành cho main */
+    grid-template-rows: auto 1fr auto; /* topbar tự động cao, phần còn lại chia đều */
+    height: 100vh;
+    gap: 8px;
+    padding: 8px;
+}
+
+/* Sidebar */
+:root {
+    --background-press: #121212;
+    --background-elevated-base: #242424;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background: var(--background-press);
+    border-radius: 8px;
+    width: 400px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.sidebar-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.logo-container {
+    padding: 0px 24px;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.logo-link, .home-link {
+    display: flex;
+    align-items: center;
+}
+
+.home-link {
+    margin-left: 10px;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: var(--background-elevated-base);
+    transition: all 0.2s ease;
+}
+
+    .home-link i {
+        font-size: 20px;
+        color: #FFFFFF;
+    }
+
+    .home-link:hover i {
+        color: #1ed760;
+    }
+
+/* Danh sách phát */
+.library-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0 12px;
+    background-color: #1c1c1c;
+    overflow-y: auto; /* Thanh cuộn dọc */
+    max-height: 100vh; /* Chiều cao tối đa 100vh để vừa với màn hình */
+    border: 2px solid #121212; /* Viền màu #121212 */
+    border-radius: 10px; /* Viền hơi tròn */
+}
+
+    .library-container::-webkit-scrollbar {
+        width: 12px; /* Đặt chiều rộng thanh cuộn hợp lý */
+    }
+
+    .library-container::-webkit-scrollbar-thumb {
+        background-color: #888; /* Màu của thanh cuộn */
+        border-radius: 10px; /* Bo góc thanh cuộn */
+    }
+
+        .library-container::-webkit-scrollbar-thumb:hover {
+            background-color: #555; /* Màu khi hover thanh cuộn */
+        }
+
+    .library-container::-webkit-scrollbar-track {
+        background: #333; /* Màu nền của track thanh cuộn */
+        border-radius: 10px; /* Bo góc track */
+    }
+
+
+.library-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+}
+
+.library-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 25px;
+    font-weight: 10000;
+}
+
+
+.plus-button {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1c1c1c;
+    border: none;
+    margin-left: 130px ;
+}
+
+.plus-icon {
+    color: white;
+    font-size: 24px;
+    line-height: 1;
+    /*margin-top: -2px;*/ /* Fine-tune vertical alignment */
+}
+
+.plus-button:hover {
+    border: none;
+    background-color: #121212;
+}
+
+
+.library-filters {
+    padding: 8px 0;
+}
+
+.library-search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.btn-icon {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #b3b3b3;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+    .btn-icon:hover {
+        color: white;
+        background-color: rgba(255,255,255,0.1);
+    }
+
+.btn-filter {
+    background-color: #232323;
+    color: white;
+    border-radius: 32px;
+    padding: 4px 12px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+    .btn-filter:hover {
+        background-color: #2a2a2a;
+    }
+
+.btn-text {
+    background: transparent;
+    border: none;
+    color: #b3b3b3;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+    .btn-text:hover {
+        color: white;
+    }
+
+.library-content {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.playlist-container {
+    padding: 8px 0;
+}
+
+.playlist-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px;
+    text-decoration: none;
+    color: white;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+    .playlist-item:hover {
+        background-color: #232323;
+    }
+
+.playlist-icon {
+    width: 48px;
+    height: 48px;
+    background-color: #282828;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .playlist-icon i {
+        font-size: 24px;
+        color: #b3b3b3;
+    }
+
+.playlist-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.playlist-title {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.playlist-subtitle {
+    font-size: 12px;
+    color: #b3b3b3;
+}
+
+.create-playlist {
+    padding: 16px;
+    text-align: center;
+}
+
+    .create-playlist h5 {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .create-playlist h6 {
+        font-size: 14px;
+        color: #b3b3b3;
+        margin-bottom: 16px;
+    }
+
+.create-playlist-button {
+    background: linear-gradient(90deg, #1db954, #1ed760);
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+    .create-playlist-button:hover {
+        background: linear-gradient(90deg, #1ed760, #1db954);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        transform: translateY(-2px);
+    }
+
+    .create-playlist-button:active {
+        transform: translateY(0);
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+    }
+
+
+/* Main Content */
+.main-content {
+    grid-area: main;
+    background: var(--background-base);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Topbar */
+.topbar {
+    grid-area: topbar;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    background-color: #121212;
+    color: white;
+}
+
+.topbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    position: relative;
+    margin-left: 16px;
+}
+
+    .search-bar input {
+        width: 300px;
+        padding: 12px 40px 12px 16px;
+        border: none;
+        border-radius: 500px;
+        background-color: var(--background-elevated-base);
+        color: var(--text-base);
+        font-size: 14px;
+    }
+
+    .search-bar i {
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-subdued);
+    }
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-link, .premium-button, .signup-button, .login-button{
+    margin-left: 32px;
+    text-decoration: none;
+    color: var(--text-base);
+    font-size: 16px;
+    font-weight: 700;
+    transition: color 0.2s;
+}
+
+.premium-button {
+    background: transparent;
+    color: var(--text-base);
+    padding: 8px 0px;
+    border-radius: 500px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+    .premium-button:hover {
+        transform: scale(1.04);
+        color: var(--text-bright-accent);
+    }
+
+
+.signup-button, .login-button{
+    padding: 8px 32px;
+    border-radius: 500px;
+    font-size: 16px;
+    font-weight: 700;
+    transition: all 0.2s;
+}
+
+.user-button {
+    margin-left: 20px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background-elevated-base); /* Purple color similar to the example */
+    color: white;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.2s;
+    border: 1px solid white; /* Đường viền màu trắng */
+}
+
+    .user-button:hover {
+        color: var(--text-bright-accent);
+        transform: scale(1.05);
+    }
+
+.signup-button {
+    background-color: var(--text-base);
+    color: var(--background-base);
+}
+
+
+.login-button {
+    background-color: transparent;
+    color: var(--text-base);
+    border: 1px solid var(--text-base);
+}
+
+    .signup-button:hover, .login-button:hover{
+        transform: scale(1.04);
+    }
+
+
+
+
+/* Content Area */
+.content-scrollable {
+    padding: 15px;
+    overflow-y: auto;
+    background-color: #1c1c1c;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+    .section-header h2 {
+        font-size: 24px;
+        font-weight: 700;
+        margin: 0;
+    }
+
+.see-all {
+    color: var(--text-subdued);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+    .see-all:hover {
+        text-decoration: underline;
+    }
+
+/* Media Grid */
+.media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 24px;
+    padding-bottom: 24px;
+}
+
+.media-card {
+    background: var(--background-elevated-base);
+    padding: 16px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+    .media-card:hover {
+        background: var(--background-elevated-highlight);
+    }
+
+.media-card-image {
+    position: relative;
+    margin-bottom: 16px;
+}
+
+    .media-card-image img {
+        width: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+        border-radius: 4px;
+    }
+
+.play-button {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--essential-bright-accent);
+    border: none;
+    color: var(--background-base);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: all 0.3s ease;
+}
+
+.media-card:hover .play-button {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.play-button:hover {
+    transform: scale(1.04);
+}
+
+.media-card-content {
+    color: var(--text-base);
+}
+
+.media-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.media-description {
+    font-size: 14px;
+    color: var(--text-subdued);
+    margin: 0;
+}
+
+/* Player Bar */
+.now-playing-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #181818;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    height: 90px;
+}
+
+.current-track {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.track-image {
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.track-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.track-name {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.track-artist {
+    font-size: 12px;
+    color: #b3b3b3;
+}
+
+.player-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.playback-controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.control-button, .play-pause-button {
+    background: none;
+    border: none;
+    color: #b3b3b3;
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+    .control-button:hover, .play-pause-button:hover {
+        color: #ffffff;
+    }
+
+.play-pause-button {
+    font-size: 32px;
+}
+
+.progress-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.progress-bar {
+    flex-grow: 1;
+    height: 4px;
+    background-color: #535353;
+    border-radius: 2px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.progress {
+    height: 100%;
+    background-color: #b3b3b3;
+    transition: width 0.1s linear;
+}
+
+.progress-bar:hover .progress {
+    background-color: #1db954;
+}
+
+#currentTime, #duration {
+    font-size: 12px;
+    color: #b3b3b3;
+}
+
+.volume-control {
+    width: 120px; /* Tăng chiều rộng để dễ tùy chỉnh */
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Khoảng cách giữa biểu tượng và thanh trượt */
+}
+
+.volume-slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px; /* Tăng chiều cao để dễ sử dụng hơn */
+    border-radius: 3px;
+    background: linear-gradient(to right, #1db954 0%, #1db954 50%, #535353 50%, #535353 100%);
+    outline: none;
+    transition: background 0.3s, opacity 0.2s;
+    cursor: pointer;
+    opacity: 0.9; /* Làm thanh trượt rõ hơn */
+}
+
+    .volume-slider:hover {
+        opacity: 1;
+    }
+
+    .volume-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 14px; /* Lớn hơn để dễ kéo */
+        height: 14px;
+        border-radius: 50%;
+        background: #fff;
+        border: 2px solid #1db954; /* Đường viền giúp nổi bật */
+        cursor: pointer;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3); /* Bóng giúp nổi hơn */
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .volume-slider:hover::-webkit-slider-thumb {
+        transform: scale(1.2); /* Phóng to khi hover */
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4); /* Bóng rõ hơn */
+    }
+
+    .volume-slider::-moz-range-thumb {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: #fff;
+        border: 2px solid #1db954;
+        cursor: pointer;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .volume-slider:hover::-moz-range-thumb {
+        transform: scale(1.2);
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+    }
+
+    .volume-slider::-webkit-slider-runnable-track,
+    .volume-slider::-moz-range-track {
+        height: 6px;
+        border-radius: 3px;
+        background: linear-gradient(to right, #1db954 50%, #535353 50%);
+        transition: background 0.3s ease;
+    }
+
+/* Biểu tượng âm lượng */
+.volume-icon {
+    color: #b3b3b3; /* Màu biểu tượng phù hợp */
+    font-size: 20px; /* Kích thước vừa đủ */
+    transition: color 0.3s;
+}
+
+    .volume-icon:hover {
+        color: #1db954; /* Đổi màu khi hover */
+    }
+
+
+
+/* Update existing styles */
+.now-playing-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .spotify-app {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "main"
+            "player";
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .media-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 16px;
+    }
+
+    .now-playing-bar {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .now-playing-right {
+        display: none;
+    }
+}
+
+
+
+.search-results {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: #282828;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    max-height: 400px;
+    overflow-y: auto;
+    display: none;
+}
+
+.search-result-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+    .search-result-item:hover {
+        background-color: #333;
+    }
+
+.search-result-image {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 12px;
+}
+
+.search-result-info {
+    flex-grow: 1;
+}
+
+    .search-result-info h3 {
+        margin: 0;
+        font-size: 14px;
+        color: #fff;
+    }
+
+    .search-result-info p {
+        margin: 0;
+        font-size: 12px;
+        color: #b3b3b3;
+    }
+
+.search-result-item .play-button {
+    background: none;
+    border: none;
+    color: #1db954;
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.search-result-item:hover .play-button {
+    opacity: 1;
+}
+
+
+/* Song Detail*/
+
+
+
+@media (max-width: 1024px) {
+    .search-bar {
+        width: 200px;
+    }
+
+    .install-button span {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .topbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+    }
+
+    .topbar-left, .topbar-right {
+        justify-content: space-between;
+    }
+
+    .search-bar {
+        width: 100%;
+    }
+
+    .install-button, .notification-button {
+        display: none;
+    }
+}
+
+

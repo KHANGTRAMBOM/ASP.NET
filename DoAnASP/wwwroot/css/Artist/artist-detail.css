@@ -1,0 +1,338 @@
+﻿.artist-avatar {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #0d6efd;
+}
+
+.artist-info {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.artist-name {
+    color: #0d6efd;
+    border-bottom: 2px solid #0d6efd;
+    padding-bottom: 10px;
+}
+
+.info-label {
+    font-weight: bold;
+    color: #495057;
+}
+
+.verified-badge {
+    background-color: #198754;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+.albums-section,
+.songs-section {
+    margin-top: 30px;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    color: #0d6efd;
+    border-bottom: 2px solid #0d6efd;
+    margin-bottom: 20px;
+}
+
+.album-cover {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.song-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.song-title {
+    font-weight: 500;
+    color: #0d6efd;
+}
+
+.song-duration {
+    font-weight: 400;
+    color: #6c757d;
+}
+
+.artist-view-container {
+    max-height: 80vh;
+    padding: 24px;
+    background: #212529;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 60px rgba(0, 0, 0, .5);
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+.artist-view-header {
+    display: flex;
+    align-items: flex-end;
+    gap: 24px;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #444;
+}
+
+.artist-view-cover {
+    width: 232px;
+    height: 232px;
+    background: #282828;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 60px rgba(0, 0, 0, .5);
+}
+
+    .artist-view-cover img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+.artist-view-info {
+    flex: 1;
+}
+
+.artist-view-label {
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.artist-view-title {
+    font-size: 36px; /* Reduced font size */
+    font-weight: 900;
+    margin: 8px 0;
+    line-height: 36px; /* Adjusted line height */
+}
+
+.artist-view-meta {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #a7a7a7;
+    font-size: 14px;
+}
+
+.artist-view-bullet {
+    margin: 0 4px;
+}
+
+.artist-view-verified {
+    background-color: #198754;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+.artist-view-controls {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin: 24px 0;
+}
+
+.artist-view-songs-table {
+    margin-top: 24px;
+}
+
+.artist-view-songs-header {
+    display: grid;
+    grid-template-columns: 48px 4fr 3fr 2fr 1fr;
+    padding: 8px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    color: #a7a7a7;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.artist-view-songs-list {
+    margin-top: 16px;
+    max-height: 60vh;
+}
+
+.artist-view-song-row {
+    display: grid;
+    grid-template-columns: 48px 4fr 3fr 2fr 1fr;
+    padding: 8px 16px;
+    border-radius: 4px;
+    color: #a7a7a7;
+    font-size: 14px;
+    align-items: center;
+}
+
+    .artist-view-song-row:hover {
+        background: rgba(255, 255, 255, .1);
+        color: white;
+    }
+
+.artist-view-song-title {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+    .artist-view-song-title img {
+        width: 50px;
+        height: 50px;
+        border-radius: 5px;
+        object-fit: cover;
+    }
+
+.artist-view-song-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.artist-view-song-name {
+    color: white;
+    font-weight: 500;
+}
+
+.artist-view-song-artist {
+    color: #a7a7a7;
+}
+
+.artist-view-song-duration {
+    text-align: right;
+}
+
+
+.artist-view-songs-header {
+    display: grid;
+    grid-template-columns: 50px 4fr 3fr 2fr 1fr;
+    padding: 8px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    color: #a7a7a7;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.artist-view-songs-list {
+    margin-top: 16px;
+}
+
+.artist-view-song-row {
+    display: grid;
+    grid-template-columns: 50px 4fr 3fr 2fr 1fr;
+    padding: 8px 16px;
+    border-radius: 4px;
+    color: #a7a7a7;
+    font-size: 14px;
+    align-items: center;
+}
+
+.artist-view-song-number {
+    text-align: center;
+}
+
+.artist-view-song-title {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+    .artist-view-song-title img {
+        width: 50px;
+        height: 50px;
+        border-radius: 5px;
+        object-fit: cover;
+    }
+
+.artist-view-song-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.artist-view-song-name {
+    color: white;
+    font-weight: 500;
+}
+
+.artist-view-song-artist {
+    color: #a7a7a7;
+}
+
+.artist-view-song-album {
+    color: #a7a7a7;
+}
+
+.artist-view-song-duration {
+    text-align: right;
+}
+
+
+
+/* Album Section */
+.artist-view-albums-table {
+    margin-top: 30px;
+}
+
+.artist-view-albums-header {
+    display: grid;
+    grid-template-columns: 4fr 2fr;
+    padding: 8px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    color: #a7a7a7;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.artist-view-albums-list {
+    margin-top: 16px;
+}
+
+.artist-view-album-row {
+    display: flex;
+    padding: 8px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    align-items: center;
+}
+
+.artist-view-album-cover {
+    width: 100px;
+    height: 100px;
+    margin-right: 16px;
+}
+
+    .artist-view-album-cover img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+.artist-view-album-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.artist-view-album-name {
+    color: white;
+    font-weight: 500;
+}
+
+.artist-view-album-release {
+    color: #a7a7a7;
+    font-size: 12px;
+}

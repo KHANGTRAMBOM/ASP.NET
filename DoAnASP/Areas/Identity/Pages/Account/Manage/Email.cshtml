@@ -1,0 +1,228 @@
+﻿@page
+@model EmailModel
+@{
+    ViewData["Title"] = "Quản lý Email";
+    ViewData["ActivePage"] = ManageNavPages.Email;
+}
+
+<style>
+    .email-container {
+        max-width: 800px;
+        margin: 2rem auto;
+    }
+
+    .email-card {
+        background: linear-gradient(145deg, #ffffff, #f5f7fa);
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        overflow: hidden;
+    }
+
+    .email-header {
+        background: linear-gradient(135deg, #2563eb, #3b82f6);
+        padding: 2rem;
+        position: relative;
+        text-align: center;
+        color: white;
+    }
+
+        .email-header::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: inherit;
+            filter: blur(20px);
+            opacity: 0.6;
+        }
+
+    .email-icon-wrapper {
+        background: rgba(255, 255, 255, 0.2);
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1rem;
+    }
+
+    .email-icon {
+        font-size: 2.5rem;
+        color: white;
+    }
+
+    .email-body {
+        padding: 2.5rem;
+    }
+
+    .form-group {
+        margin-bottom: 2rem;
+    }
+
+    .form-control {
+        height: 3.5rem;
+        padding: 1rem 1.25rem;
+        border: 2px solid #e5e7eb;
+        border-radius: 12px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+    }
+
+        .form-control:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+        }
+
+        .form-control:disabled {
+            background-color: #f3f4f6;
+            cursor: not-allowed;
+        }
+
+    .input-group-text {
+        border: 2px solid #e5e7eb;
+        border-radius: 12px;
+        background-color: #f9fafb;
+    }
+
+    .verified-badge {
+        background-color: #22c55e;
+        color: white;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+    }
+
+    .btn-verify {
+        padding: 0.75rem 1.5rem;
+        background-color: transparent;
+        border: 2px solid #2563eb;
+        color: #2563eb;
+        border-radius: 12px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+        .btn-verify:hover {
+            background-color: #2563eb;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+    .btn-change {
+        width: 100%;
+        padding: 1rem;
+        background: linear-gradient(135deg, #2563eb, #3b82f6);
+        border: none;
+        border-radius: 12px;
+        color: white;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+    }
+
+        .btn-change:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+        }
+
+    .alert {
+        border-radius: 12px;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .validation-summary {
+        background-color: #eff6ff;
+        border: 2px solid #bfdbfe;
+        border-radius: 12px;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+        color: #1e40af;
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+</style>
+
+<div class="email-container">
+    <div class="email-card">
+        <div class="email-header">
+@*             <div class="email-icon-wrapper">
+                <i class="fas fa-envelope email-icon"></i>
+            </div> *@
+            <h2 class="mb-0">@ViewData["Title"]</h2>
+            <p class="mt-2 mb-0">Cập nhật và xác minh địa chỉ email của bạn</p>
+        </div>
+
+        <div class="email-body">
+            <partial name="_StatusMessage" for="StatusMessage" />
+
+            <form id="email-form" method="post">
+                <div asp-validation-summary="All" class="validation-summary" role="alert"></div>
+
+                <div class="form-group">
+                    <h5 class="section-title">Email hiện tại</h5>
+                    @if (Model.IsEmailConfirmed)
+                    {
+                        <div class="input-group">
+                            <span class="input-group-text">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                            <input asp-for="Email" class="form-control" disabled />
+                            <span class="input-group-text">
+                                <span class="verified-badge" title="Email đã xác minh">✓</span>
+                            </span>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="input-group">
+                            <span class="input-group-text">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                            <input asp-for="Email" class="form-control" disabled />
+                            <button id="email-verification" type="submit"
+                                    asp-page-handler="SendVerificationEmail"
+                                    class="btn btn-verify">
+                                <i class="fas fa-paper-plane me-2"></i>Gửi email xác minh
+                            </button>
+                        </div>
+                    }
+                </div>
+
+                <div class="form-group">
+                    <h5 class="section-title">Thay đổi email</h5>
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                        <input asp-for="Input.NewEmail" class="form-control"
+                               autocomplete="email" aria-required="true"
+                               placeholder="Nhập email mới của bạn" />
+                    </div>
+                    <span asp-validation-for="Input.NewEmail" class="text-danger"></span>
+                </div>
+
+                <button id="change-email-button" type="submit"
+                        asp-page-handler="ChangeEmail"
+                        class="btn btn-change">
+                    <i class="fas fa-sync-alt me-2"></i>Thay đổi email
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

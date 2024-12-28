@@ -1,0 +1,179 @@
+﻿@model DoAnASP.Models.Song
+
+@{
+    ViewData["Title"] = "Chỉnh sửa bài hát";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">@ViewData["Title"]</h1>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <form asp-action="Edit" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+                        <input type="hidden" asp-for="SongID" />
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="AlbumID" class="form-label">Album</label>
+                                <select asp-for="AlbumID" class="form-select" asp-items="ViewBag.AlbumID">
+                                    <option value="">Chọn Album</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="ArtistID" class="form-label">Nghệ sĩ</label>
+                                <select asp-for="ArtistID" class="form-select" asp-items="ViewBag.ArtistID">
+                                    <option value="">Chọn nghệ sĩ</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="GenreID" class="form-label">Thể loại</label>
+                            <select asp-for="GenreID" class="form-select" asp-items="ViewBag.GenreID">
+                                <option value="">Chọn thể loại</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Title" class="form-label">Tên bài hát</label>
+                            <input asp-for="Title" class="form-control" />
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="AudioFile" class="form-label">File âm thanh</label>
+                            <input name="AudioFileUpLoad" type="file" class="form-control" id="audioFileInput" accept=".mp3" />
+                            <input asp-for="AudioFile" class="form-control" type="hidden" value="@Model.AudioFile" />
+                            <span asp-validation-for="AudioFile" class="text-danger"></span>
+                        </div>
+
+                        @if (!string.IsNullOrEmpty(Model.AudioFile))
+                        {
+                            <div class="mb-3">
+                                <p class="text-info">File hiện tại: <strong>@Model.AudioFile</strong></p>
+                            </div>
+                        }
+
+                        <div class="mb-3">
+                            <label asp-for="Duration" class="form-label">Thời lượng (giây)</label>
+                            <input asp-for="Duration" class="form-control" id="durationInput" readonly />
+                            <span asp-validation-for="Duration" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="PlayCount" class="form-label">Số lượt nghe</label>
+                            <input asp-for="PlayCount" class="form-control" />
+                            <span asp-validation-for="PlayCount" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3 form-check">
+                            <input asp-for="IsExplicit" class="form-check-input" type="checkbox" />
+                            <label class="form-check-label" asp-for="IsExplicit">Nội dung nhạy cảm</label>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Image" class="form-label">Ảnh bìa</label>
+                            <input name="ImageUpLoad" type="file" class="form-control" id="imageInput" accept=".jpg,.jpeg,.png">
+                            <input asp-for="Image" class="form-control" type="hidden" value="@Model.Image" />
+                            <span asp-validation-for="Image" class="text-danger"></span>
+                        </div>
+
+                        @if (!string.IsNullOrEmpty(Model.Image))
+                        {
+                            <div class="mb-4 text-center">
+                                <div class="card shadow-sm" style="max-width: 300px; margin: 0 auto;">
+                                    <div class="card-header bg-primary text-white">
+                                        <h6 class="mb-0">Ảnh hiện tại</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <img src="/pictures/@Model.Image"
+                                             alt="Ảnh hiện tại"
+                                             class="img-fluid rounded"
+                                             style="max-height: 200px; object-fit: cover;" />
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+                            <a asp-action="Index" class="btn btn-secondary">Trở về trang chủ</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="height: 50px">
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('audioFileInput').addEventListener('change', function (event) {
+                var file = event.target.files[0];
+                if (file) {
+                    if (file.type === "audio/mpeg") {
+                        var audio = new Audio();
+                        var objectURL = URL.createObjectURL(file);
+
+                        audio.onloadedmetadata = function () {
+                            var durationInSeconds = audio.duration;
+
+                            if (durationInSeconds && durationInSeconds > 0) {
+                                document.getElementById('durationInput').value = Math.floor(durationInSeconds);
+                            } else {
+                                console.error("Không thể lấy thời gian từ file.");
+                            }
+                        };
+
+                        audio.src = objectURL;
+                    } else {
+                        alert("Vui lòng chọn một file MP3.");
+                    }
+                }
+            });
+        });
+    </script>
+
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .card-body {
+            padding: 40px;
+        }
+
+        .form-label {
+            font-weight: 500;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+                border-color: #0056b3;
+            }
+    </style>
+}
+

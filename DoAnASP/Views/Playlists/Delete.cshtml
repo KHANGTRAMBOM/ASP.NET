@@ -1,0 +1,58 @@
+﻿@model DoAnASP.Models.Playlist
+
+@{
+    ViewData["Title"] = "Xóa Playlist";
+
+    <link href="~/css/custom-styles.css" rel="stylesheet">
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm border-danger">
+                <div class="card-header bg-danger text-white">
+                    <h3 class="card-title mb-0">@ViewData["Title"]</h3>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-warning" role="alert">
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                        Bạn có chắc chắn muốn xóa danh sách phát này không?
+                    </div>
+
+                    <dl class="row">
+                        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Title)</dt>
+                        <dd class="col-sm-9">@Html.DisplayFor(model => model.Title)</dd>
+
+                        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Description)</dt>
+                        <dd class="col-sm-9">@Html.DisplayFor(model => model.Description)</dd>
+
+                        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.IsPublic)</dt>
+                        <dd class="col-sm-9">
+                            <span class="badge bg-@(Model.IsPublic ? "success" : "secondary")">
+                                @(Model.IsPublic ? "Public" : "Private")
+                            </span>
+                        </dd>
+
+                        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.CreatedAt)</dt>
+                        <dd class="col-sm-9">@Html.DisplayFor(model => model.CreatedAt)</dd>
+
+                        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.UpdatedAt)</dt>
+                        <dd class="col-sm-9">@Html.DisplayFor(model => model.UpdatedAt)</dd>
+
+                        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.User)</dt>
+                        <dd class="col-sm-9">@Html.DisplayFor(model => model.User.UserName)</dd>
+                    </dl>
+
+                    <form asp-action="Delete" class="mt-4">
+                        <input type="hidden" asp-for="PlaylistID" />
+                        <div class="d-flex justify-content-between">
+                            <button type="submit" class="btn btn-danger">Xóa</button>
+                            <a asp-action="Index" class="btn btn-secondary">Trở về trang chủ</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

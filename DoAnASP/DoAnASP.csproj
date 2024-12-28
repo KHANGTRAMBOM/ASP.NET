@@ -1,0 +1,77 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>aspnet-DoAnASP-35566b1d-3d0a-4473-8a1d-cf06af2450f4</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\css\Album\Details.css" />
+    <Content Remove="wwwroot\css\Artist\artist-detail.css" />
+    <Content Remove="wwwroot\css\Gerne\custom-styles -delete .css" />
+    <Content Remove="wwwroot\css\Gerne\custom-styles -details.css" />
+    <Content Remove="wwwroot\css\Gerne\custom-styles.css" />
+    <Content Remove="wwwroot\css\Playlistsong\custom-styles -delete.css" />
+    <Content Remove="wwwroot\css\Playlistsong\custom-styles -details.css" />
+    <Content Remove="wwwroot\css\Playlistsong\custom-styles.css" />
+    <Content Remove="wwwroot\css\Follow\custom-styles.css" />
+    <Content Remove="wwwroot\css\playlist-song-styles -detail.css" />
+    <Content Remove="wwwroot\css\spotify.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.11" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.11" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.11" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
+    <PackageReference Include="System.Text.Json" Version="8.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\audios\" />
+    <Folder Include="wwwroot\coverarts\" />
+    <Folder Include="wwwroot\pictures\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\Album\Details.css" />
+    <None Include="wwwroot\css\Artist\artist-detail.css" />
+    <None Include="wwwroot\css\Gerne\custom-styles -delete .css" />
+    <None Include="wwwroot\css\Gerne\custom-styles -details.css" />
+    <None Include="wwwroot\css\Gerne\custom-styles.css" />
+    <None Include="wwwroot\css\Playlistsong\custom-styles -delete.css" />
+    <None Include="wwwroot\css\Playlistsong\custom-styles -details.css" />
+    <None Include="wwwroot\css\Playlistsong\custom-styles.css" />
+    <None Include="wwwroot\css\Follow\custom-styles.css" />
+    <None Include="wwwroot\css\Playlist\playlist-song-styles -detail.css" />
+    <None Include="wwwroot\css\spotify.css" />
+    <None Include="wwwroot\css\custom-styles.css" />
+    <None Include="wwwroot\css\playlist-song-styles.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\PlaylistSongs\_ViewStart.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Shared\_SearchResults.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\js\Audio.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+
+</Project>

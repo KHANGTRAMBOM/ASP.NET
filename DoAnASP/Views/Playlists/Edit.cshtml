@@ -1,0 +1,75 @@
+﻿@model DoAnASP.Models.Playlist
+
+@{
+    ViewData["Title"] = "Edit Playlist";
+    <link href="~/css/custom-styles.css" rel="stylesheet">
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="card-title mb-0">@ViewData["Title"]</h3>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+                        <input type="hidden" asp-for="PlaylistID" />
+
+                        <div class="mb-3">
+                            <label asp-for="UserID" class="form-label"></label>
+                            <select asp-for="UserID" class="form-select" asp-items="ViewBag.UserID">
+                                <option value="" disabled selected>--- Select a user ---</option>
+                            </select>
+                            <span asp-validation-for="UserID" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Title" class="form-label"></label>
+                            <input asp-for="Title" class="form-control" />
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Description" class="form-label"></label>
+                            <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3 form-check">
+                            <input class="form-check-input" asp-for="IsPublic" />
+                            <label class="form-check-label" asp-for="IsPublic"></label>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="CreatedAt" class="form-label"></label>
+                            <input asp-for="CreatedAt" class="form-control" type="datetime-local" />
+                            <span asp-validation-for="CreatedAt" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="UpdatedAt" class="form-label"></label>
+                            <input asp-for="UpdatedAt" class="form-control" type="datetime-local" id="UpdatedAt" />
+                            <span asp-validation-for="UpdatedAt" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a asp-action="Index" class="btn btn-secondary me-md-2">Trở về trang chủ</a>
+                            <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+  
+}
+

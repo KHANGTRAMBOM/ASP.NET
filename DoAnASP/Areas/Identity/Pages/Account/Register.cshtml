@@ -1,0 +1,79 @@
+﻿@page
+@model RegisterModel
+
+@{
+    Layout = "_Layout_Login_Register";
+    ViewData["Title"] = "Trang Đăng Ký";
+}
+<style>
+    body {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)), url('/theme/theme2.png');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        min-height: 100vh;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+</style>
+
+<div class="login-container">
+    <h1>Đăng Ký</h1>
+
+    <form id="registerForm" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+        <div class="mb-4">
+            <input asp-for="Input.Email" class="form-control"
+                   placeholder="Email của bạn" autocomplete="username" />
+            <span asp-validation-for="Input.Email" class="text-danger"></span>
+        </div>
+
+        <div class="mb-4">
+            <input asp-for="Input.Password" class="form-control"
+                   placeholder="Mật khẩu" autocomplete="new-password" />
+            <span asp-validation-for="Input.Password" class="text-danger"></span>
+        </div>
+
+        <div class="mb-4">
+            <input asp-for="Input.ConfirmPassword" class="form-control"
+                   placeholder="Xác nhận mật khẩu" autocomplete="new-password" />
+            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-login">Đăng ký</button>
+
+        @if ((Model.ExternalLogins?.Count ?? 0) > 0)
+        {
+            <div class="divider">
+                <span>hoặc</span>
+            </div>
+
+            <form id="external-account" asp-page="./ExternalLogin"
+                  asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                @foreach (var provider in Model.ExternalLogins!)
+                {
+                    @if (provider.Name.ToLower() == "facebook" || provider.Name.ToLower() == "twitter")
+                    {
+                        <button type="submit" class="social-btn"
+                                name="provider" value="@provider.Name">
+                            <i class="bi bi-@(provider.Name.ToLower()) me-2"></i>
+                            Đăng ký với @provider.DisplayName
+                        </button>
+                    }
+                }
+            </form>
+        }
+    </form>
+
+    <div class="text-center mt-4">
+        <small class="text-white-50">© 2023 Trang Đăng Ký. Đã đăng ký bản quyền</small>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

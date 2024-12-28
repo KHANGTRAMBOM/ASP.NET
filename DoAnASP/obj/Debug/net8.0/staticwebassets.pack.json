@@ -1,0 +1,749 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\DoAnASP.bundle.scp.css",
+      "PackagePath": "staticwebassets\\DoAnASP.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\artists\\251f44264221f87fa130.jpg",
+      "PackagePath": "staticwebassets\\artists\\251f44264221f87fa130.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\artists\\Bản sao của chillguy-removebg-preview-output.png",
+      "PackagePath": "staticwebassets\\artists\\Bản sao của chillguy-removebg-preview-output.png"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\artists\\arianagrande_avatar.jpg",
+      "PackagePath": "staticwebassets\\artists\\arianagrande_avatar.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\artists\\billieeilish_avatar.jpg",
+      "PackagePath": "staticwebassets\\artists\\billieeilish_avatar.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\artists\\bts_avatar.jpg",
+      "PackagePath": "staticwebassets\\artists\\bts_avatar.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\artists\\chillguy.jpg",
+      "PackagePath": "staticwebassets\\artists\\chillguy.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\artists\\denvau_avatar.jpg",
+      "PackagePath": "staticwebassets\\artists\\denvau_avatar.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\artists\\edsheeran_avatar.jpg",
+      "PackagePath": "staticwebassets\\artists\\edsheeran_avatar.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\artists\\f98ec3031204a85af115.jpg",
+      "PackagePath": "staticwebassets\\artists\\f98ec3031204a85af115.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\artists\\huongtram_avatar.jpg",
+      "PackagePath": "staticwebassets\\artists\\huongtram_avatar.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\artists\\jack_avatar.jpg",
+      "PackagePath": "staticwebassets\\artists\\jack_avatar.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\artists\\justinbieber_avatar.jpg",
+      "PackagePath": "staticwebassets\\artists\\justinbieber_avatar.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\artists\\karik_avatar.jpg",
+      "PackagePath": "staticwebassets\\artists\\karik_avatar.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\artists\\louhoang_avatar.jpg",
+      "PackagePath": "staticwebassets\\artists\\louhoang_avatar.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\artists\\mytam_avatar.jpg",
+      "PackagePath": "staticwebassets\\artists\\mytam_avatar.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\artists\\onlyc_avatar.jpg",
+      "PackagePath": "staticwebassets\\artists\\onlyc_avatar.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\artists\\sontung_avatar.jpg",
+      "PackagePath": "staticwebassets\\artists\\sontung_avatar.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\artists\\taylorswift_avatar.jpg",
+      "PackagePath": "staticwebassets\\artists\\taylorswift_avatar.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\artists\\tranthanh_avatar.jpg",
+      "PackagePath": "staticwebassets\\artists\\tranthanh_avatar.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\artists\\trungquan_avatar.jpg",
+      "PackagePath": "staticwebassets\\artists\\trungquan_avatar.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\audios\\7rings_audio.mp3",
+      "PackagePath": "staticwebassets\\audios\\7rings_audio.mp3"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\audios\\Ceylon Gran Turismo.mp3",
+      "PackagePath": "staticwebassets\\audios\\Ceylon Gran Turismo.mp3"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\audios\\RAP VE LOP B13.mp3",
+      "PackagePath": "staticwebassets\\audios\\RAP VE LOP B13.mp3"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\audios\\baby_audio.mp3",
+      "PackagePath": "staticwebassets\\audios\\baby_audio.mp3"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\audios\\badguy_audio.mp3",
+      "PackagePath": "staticwebassets\\audios\\badguy_audio.mp3"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\audios\\baihongnhan_audio.mp3",
+      "PackagePath": "staticwebassets\\audios\\baihongnhan_audio.mp3"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\audios\\bainaychillphet_audio.mp3",
+      "PackagePath": "staticwebassets\\audios\\bainaychillphet_audio.mp3"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\audios\\bandoi_audio.mp3",
+      "PackagePath": "staticwebassets\\audios\\bandoi_audio.mp3"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\audios\\blankspace_audio.mp3",
+      "PackagePath": "staticwebassets\\audios\\blankspace_audio.mp3"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\audios\\boywithluv_audio.mp3",
+      "PackagePath": "staticwebassets\\audios\\boywithluv_audio.mp3"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\audios\\canhhongphai_audio.mp3",
+      "PackagePath": "staticwebassets\\audios\\canhhongphai_audio.mp3"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\audios\\chuabaogio_audio.mp3",
+      "PackagePath": "staticwebassets\\audios\\chuabaogio_audio.mp3"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\audios\\chungtacuahientai_audio.mp3",
+      "PackagePath": "staticwebassets\\audios\\chungtacuahientai_audio.mp3"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\audios\\daudetruongthanh_audio.mp3",
+      "PackagePath": "staticwebassets\\audios\\daudetruongthanh_audio.mp3"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\audios\\daumua_audio.mp3",
+      "PackagePath": "staticwebassets\\audios\\daumua_audio.mp3"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\audios\\demngayxaem_audio.mp3",
+      "PackagePath": "staticwebassets\\audios\\demngayxaem_audio.mp3"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\audios\\dunghoi_audio.mp3",
+      "PackagePath": "staticwebassets\\audios\\dunghoi_audio.mp3"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\audios\\duyenminlo_audio.mp3",
+      "PackagePath": "staticwebassets\\audios\\duyenminlo_audio.mp3"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\audios\\dynamite_audio.mp3",
+      "PackagePath": "staticwebassets\\audios\\dynamite_audio.mp3"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\audios\\emgaimua_audio.mp3",
+      "PackagePath": "staticwebassets\\audios\\emgaimua_audio.mp3"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\audios\\hayveveinhau_audio.mp3",
+      "PackagePath": "staticwebassets\\audios\\hayveveinhau_audio.mp3"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\audios\\lactroi_audio.mp3",
+      "PackagePath": "staticwebassets\\audios\\lactroi_audio.mp3"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\audios\\loinho_audio.mp3",
+      "PackagePath": "staticwebassets\\audios\\loinho_audio.mp3"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\audios\\lovestory_audio.mp3",
+      "PackagePath": "staticwebassets\\audios\\lovestory_audio.mp3"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\audios\\nguoilaoi_audio.mp3",
+      "PackagePath": "staticwebassets\\audios\\nguoilaoi_audio.mp3"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\audios\\perfect_audio.mp3",
+      "PackagePath": "staticwebassets\\audios\\perfect_audio.mp3"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\audios\\shapeofyou_audio.mp3",
+      "PackagePath": "staticwebassets\\audios\\shapeofyou_audio.mp3"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\audios\\songgio_audio.mp3",
+      "PackagePath": "staticwebassets\\audios\\songgio_audio.mp3"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\audios\\sorry_audio.mp3",
+      "PackagePath": "staticwebassets\\audios\\sorry_audio.mp3"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\audios\\thankunext_audio.mp3",
+      "PackagePath": "staticwebassets\\audios\\thankunext_audio.mp3"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\audios\\yeulathathu_audio.mp3",
+      "PackagePath": "staticwebassets\\audios\\yeulathathu_audio.mp3"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\audios\\yeumotnguoicole_audio.mp3",
+      "PackagePath": "staticwebassets\\audios\\yeumotnguoicole_audio.mp3"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\audios\\Đọc thơ về gói thuốc Hero.mp3",
+      "PackagePath": "staticwebassets\\audios\\Đọc thơ về gói thuốc Hero.mp3"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\coverarts\\251f44264221f87fa130.jpg",
+      "PackagePath": "staticwebassets\\coverarts\\251f44264221f87fa130.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\coverarts\\Bunbo.png",
+      "PackagePath": "staticwebassets\\coverarts\\Bunbo.png"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\coverarts\\badguy_cover.jpg",
+      "PackagePath": "staticwebassets\\coverarts\\badguy_cover.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\coverarts\\bainaychillphet_cover.jpg",
+      "PackagePath": "staticwebassets\\coverarts\\bainaychillphet_cover.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\coverarts\\bandoi_cover.jpg",
+      "PackagePath": "staticwebassets\\coverarts\\bandoi_cover.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\coverarts\\canhhongphai_cover.jpg",
+      "PackagePath": "staticwebassets\\coverarts\\canhhongphai_cover.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\coverarts\\chillguy.jpg",
+      "PackagePath": "staticwebassets\\coverarts\\chillguy.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\coverarts\\chuabaogio_cover.jpg",
+      "PackagePath": "staticwebassets\\coverarts\\chuabaogio_cover.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\coverarts\\dynamite_cover.jpg",
+      "PackagePath": "staticwebassets\\coverarts\\dynamite_cover.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\coverarts\\emgaimua_cover.jpg",
+      "PackagePath": "staticwebassets\\coverarts\\emgaimua_cover.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\coverarts\\hayvevoinhau_cover.jpg",
+      "PackagePath": "staticwebassets\\coverarts\\hayvevoinhau_cover.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\coverarts\\hero.jpg",
+      "PackagePath": "staticwebassets\\coverarts\\hero.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\coverarts\\hognhan_cover.jpg",
+      "PackagePath": "staticwebassets\\coverarts\\hognhan_cover.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\coverarts\\jack.jpg",
+      "PackagePath": "staticwebassets\\coverarts\\jack.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\coverarts\\lactroi_cover.jpg",
+      "PackagePath": "staticwebassets\\coverarts\\lactroi_cover.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\coverarts\\love_story_cover.jpg",
+      "PackagePath": "staticwebassets\\coverarts\\love_story_cover.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\coverarts\\shapeofyou_cover.jpg",
+      "PackagePath": "staticwebassets\\coverarts\\shapeofyou_cover.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\coverarts\\sorry_cover.jpg",
+      "PackagePath": "staticwebassets\\coverarts\\sorry_cover.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\coverarts\\thankunext_cover.jpg",
+      "PackagePath": "staticwebassets\\coverarts\\thankunext_cover.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\coverarts\\yeulathathu_cover.jpg",
+      "PackagePath": "staticwebassets\\coverarts\\yeulathathu_cover.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\coverarts\\yeumotnguoicole_cover.jpg",
+      "PackagePath": "staticwebassets\\coverarts\\yeumotnguoicole_cover.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\css\\Home\\Prenium\\site.css",
+      "PackagePath": "staticwebassets\\css\\Home\\Prenium\\site.css"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\css\\Login\\site.css",
+      "PackagePath": "staticwebassets\\css\\Login\\site.css"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\css\\Playlist\\playlist-song-styles -detail.css",
+      "PackagePath": "staticwebassets\\css\\Playlist\\playlist-song-styles -detail.css"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\css\\custom-styles.css",
+      "PackagePath": "staticwebassets\\css\\custom-styles.css"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\css\\playlist-song-styles.css",
+      "PackagePath": "staticwebassets\\css\\playlist-song-styles.css"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\css\\site _2.css",
+      "PackagePath": "staticwebassets\\css\\site _2.css"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\js\\Audio.js",
+      "PackagePath": "staticwebassets\\js\\Audio.js"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\js\\Sreach.js",
+      "PackagePath": "staticwebassets\\js\\Sreach.js"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\pictures\\251f44264221f87fa130.jpg",
+      "PackagePath": "staticwebassets\\pictures\\251f44264221f87fa130.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\pictures\\7rings_image.jpg",
+      "PackagePath": "staticwebassets\\pictures\\7rings_image.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\pictures\\baby_image.jpg",
+      "PackagePath": "staticwebassets\\pictures\\baby_image.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\pictures\\badguy_image.jpg",
+      "PackagePath": "staticwebassets\\pictures\\badguy_image.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\pictures\\bainaychillphet_image.jpg",
+      "PackagePath": "staticwebassets\\pictures\\bainaychillphet_image.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\pictures\\bandoi_image.jpg",
+      "PackagePath": "staticwebassets\\pictures\\bandoi_image.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\pictures\\blankspace_image.jpg",
+      "PackagePath": "staticwebassets\\pictures\\blankspace_image.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\pictures\\boywithluv_image.jpg",
+      "PackagePath": "staticwebassets\\pictures\\boywithluv_image.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\pictures\\canhhongphai_image.jpg",
+      "PackagePath": "staticwebassets\\pictures\\canhhongphai_image.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\pictures\\chillguy.jpg",
+      "PackagePath": "staticwebassets\\pictures\\chillguy.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\pictures\\chuabaogio_image.jpg",
+      "PackagePath": "staticwebassets\\pictures\\chuabaogio_image.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\pictures\\chungtacuahientai_image.jpg",
+      "PackagePath": "staticwebassets\\pictures\\chungtacuahientai_image.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\pictures\\crown_icon.png",
+      "PackagePath": "staticwebassets\\pictures\\crown_icon.png"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\pictures\\daudetruongthanh_image.jpg",
+      "PackagePath": "staticwebassets\\pictures\\daudetruongthanh_image.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\pictures\\daumua_image.jpg",
+      "PackagePath": "staticwebassets\\pictures\\daumua_image.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\pictures\\demngayxaem_image.jpg",
+      "PackagePath": "staticwebassets\\pictures\\demngayxaem_image.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\pictures\\dunghoi_image.jpg",
+      "PackagePath": "staticwebassets\\pictures\\dunghoi_image.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\pictures\\duyenminlo_image.jpg",
+      "PackagePath": "staticwebassets\\pictures\\duyenminlo_image.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\pictures\\dynamite_image.jpg",
+      "PackagePath": "staticwebassets\\pictures\\dynamite_image.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\pictures\\emgaimua_image.jpg",
+      "PackagePath": "staticwebassets\\pictures\\emgaimua_image.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\pictures\\hayvevoinhau_image.jpg",
+      "PackagePath": "staticwebassets\\pictures\\hayvevoinhau_image.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\pictures\\hero.jpg",
+      "PackagePath": "staticwebassets\\pictures\\hero.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\pictures\\hongnhan_image.jpg",
+      "PackagePath": "staticwebassets\\pictures\\hongnhan_image.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\pictures\\jack.jpg",
+      "PackagePath": "staticwebassets\\pictures\\jack.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\pictures\\lactroi_image.jpg",
+      "PackagePath": "staticwebassets\\pictures\\lactroi_image.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\pictures\\logo.png",
+      "PackagePath": "staticwebassets\\pictures\\logo.png"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\pictures\\logo2.png",
+      "PackagePath": "staticwebassets\\pictures\\logo2.png"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\pictures\\loinho_image.jpg",
+      "PackagePath": "staticwebassets\\pictures\\loinho_image.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\pictures\\lovestory_image.jpg",
+      "PackagePath": "staticwebassets\\pictures\\lovestory_image.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\pictures\\nguoilaoi_image.jpg",
+      "PackagePath": "staticwebassets\\pictures\\nguoilaoi_image.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\pictures\\perfect_image.jpg",
+      "PackagePath": "staticwebassets\\pictures\\perfect_image.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\pictures\\shapeofyou_image.jpg",
+      "PackagePath": "staticwebassets\\pictures\\shapeofyou_image.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\pictures\\songgio_image.jpg",
+      "PackagePath": "staticwebassets\\pictures\\songgio_image.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\pictures\\sorry_image.jpg",
+      "PackagePath": "staticwebassets\\pictures\\sorry_image.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\pictures\\thankunext_image.jpg",
+      "PackagePath": "staticwebassets\\pictures\\thankunext_image.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\pictures\\yeulathathu_image.jpg",
+      "PackagePath": "staticwebassets\\pictures\\yeulathathu_image.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\pictures\\yeumotnguoicole_image.jpg",
+      "PackagePath": "staticwebassets\\pictures\\yeumotnguoicole_image.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\theme\\theme.png",
+      "PackagePath": "staticwebassets\\theme\\theme.png"
+    },
+    {
+      "Id": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\wwwroot\\theme\\theme2.png",
+      "PackagePath": "staticwebassets\\theme\\theme2.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.DoAnASP.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.DoAnASP.props",
+      "PackagePath": "build\\DoAnASP.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.DoAnASP.props",
+      "PackagePath": "buildMultiTargeting\\DoAnASP.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.DoAnASP.props",
+      "PackagePath": "buildTransitive\\DoAnASP.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -1,0 +1,82 @@
+﻿@model IEnumerable<DoAnASP.Models.Artist>
+
+@{
+    ViewData["Title"] = "Artists";
+}
+
+<div class="container mt-4">
+    <h1 class="mb-4 text-white">Danh Sách Nghệ Sĩ</h1>
+
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="input-group">
+                <input type="text" class="form-control" id="searchInput" placeholder="Tìm kiếm nghệ sĩ...">
+                <button class="btn btn-outline-light" type="button">
+                    <i class="bi bi-search"></i>
+                </button>
+            </div>
+        </div>
+        <div class="col-md-6 text-md-end mt-3 mt-md-0">
+            <a asp-action="Create" class="btn btn-primary mb-3">
+                <i class="bi bi-plus-circle me-2"></i>Thêm Nghệ Sĩ Mới
+            </a>
+        </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="artistList">
+        @foreach (var item in Model)
+        {
+            <div class="col artist-item">
+                <div class="card h-100 shadow-sm">
+                    <img src="/artists/@item.Avatar" class="card-img-top artist-avatar" alt="@item.Name">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <p class="card-text text-muted">@(item.Bio?.Length > 100 ? item.Bio.Substring(0, 100) + "..." : item.Bio)</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">Created: @item.CreatedAt.ToString("MMM dd, yyyy")</small>
+                            @if (item.IsVerified)
+                            {
+                                <span class="badge bg-success">Verified</span>
+                            }
+                        </div>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                        <div class="btn-group" role="group">
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">Chỉnh sửa</a>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary">Chi tiết</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger">Xóa</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div style="height: 80px">
+    </div>
+
+</div>
+
+@section Scripts {
+    <script>
+        document.getElementById('searchInput').addEventListener('keyup', function () {
+            var input, filter, artistList, artists, artistName, i, txtValue;
+            input = document.getElementById("searchInput");
+            filter = input.value.toUpperCase();
+            artistList = document.getElementById("artistList");
+            artists = artistList.getElementsByClassName("artist-item");
+
+            for (i = 0; i < artists.length; i++) {
+                artistName = artists[i].querySelector(".card-title");
+                if (artistName) {
+                    txtValue = artistName.textContent || artistName.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        artists[i].style.display = "";
+                    } else {
+                        artists[i].style.display = "none";
+                    }
+                }
+            }
+        });
+    </script>
+}

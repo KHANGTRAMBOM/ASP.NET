@@ -1,0 +1,140 @@
+﻿@page
+@using Microsoft.AspNetCore.Http.Features
+@model TwoFactorAuthenticationModel
+@{
+    ViewData["Title"] = "Xác thực hai yếu tố";
+    ViewData["ActivePage"] = ManageNavPages.TwoFactorAuthentication;
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-lg border-0 rounded-lg">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0">@ViewData["Title"]</h3>
+                </div>
+                <div class="card-body">
+                    <partial name="_StatusMessage" for="StatusMessage" />
+
+                    @{
+                        var consentFeature = HttpContext.Features.Get<ITrackingConsentFeature>();
+                        @if (consentFeature?.CanTrack ?? true)
+                        {
+                            @if (Model.Is2faEnabled)
+                            {
+                                if (Model.RecoveryCodesLeft == 0)
+                                {
+                                    <div class="alert alert-danger">
+                                        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                                        <strong>Bạn không còn mã khôi phục nào.</strong>
+                                        <p>Bạn cần <a asp-page="./GenerateRecoveryCodes" class="alert-link">tạo bộ mã khôi phục mới</a> trước khi có thể đăng nhập bằng mã khôi phục.</p>
+                                    </div>
+                                }
+                                else if (Model.RecoveryCodesLeft == 1)
+                                {
+                                    <div class="alert alert-warning">
+                                        <i class="bi bi-exclamation-circle-fill me-2"></i>
+                                        <strong>Bạn chỉ còn 1 mã khôi phục.</strong>
+                                        <p>Bạn nên <a asp-page="./GenerateRecoveryCodes" class="alert-link">tạo bộ mã khôi phục mới</a>.</p>
+                                    </div>
+                                }
+                                else if (Model.RecoveryCodesLeft <= 3)
+                                {
+                                    <div class="alert alert-info">
+                                        <i class="bi bi-info-circle-fill me-2"></i>
+                                        <strong>Bạn còn @Model.RecoveryCodesLeft mã khôi phục.</strong>
+                                        <p>Bạn nên <a asp-page="./GenerateRecoveryCodes" class="alert-link">tạo bộ mã khôi phục mới</a>.</p>
+                                    </div>
+                                }
+
+                                <div class="d-flex flex-wrap gap-2 mb-4">
+                                    @if (Model.IsMachineRemembered)
+                                    {
+                                        <form method="post" style="display: inline-block">
+                                            <button type="submit" class="btn btn-outline-primary">
+                                                <i class="bi bi-laptop me-2"></i>Quên trình duyệt này
+                                            </button>
+                                        </form>
+                                    }
+                                    <a asp-page="./Disable2fa" class="btn btn-outline-danger">
+                                        <i class="bi bi-shield-x me-2"></i>Vô hiệu hóa 2FA
+                                    </a>
+                                    <a asp-page="./GenerateRecoveryCodes" class="btn btn-outline-warning">
+                                        <i class="bi bi-arrow-repeat me-2"></i>Đặt lại mã khôi phục
+                                    </a>
+                                </div>
+                            }
+
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    <h4 class="mb-0">
+                                        <i class="bi bi-phone me-2"></i>Ứng dụng xác thực
+                                    </h4>
+                                </div>
+                                <div class="card-body">
+                                    @if (!Model.HasAuthenticator)
+                                    {
+                                        <a id="enable-authenticator" asp-page="./EnableAuthenticator" class="btn btn-success">
+                                            <i class="bi bi-plus-circle me-2"></i>Thêm ứng dụng xác thực
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <div class="d-flex flex-wrap gap-2">
+                                            <a id="enable-authenticator" asp-page="./EnableAuthenticator" class="btn btn-primary">
+                                                <i class="bi bi-gear me-2"></i>Cài đặt ứng dụng xác thực
+                                            </a>
+                                            <a id="reset-authenticator" asp-page="./ResetAuthenticator" class="btn btn-warning">
+                                                <i class="bi bi-arrow-counterclockwise me-2"></i>Đặt lại ứng dụng xác thực
+                                            </a>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="alert alert-danger">
+                                <i class="bi bi-exclamation-octagon-fill me-2"></i>
+                                <strong>Bạn chưa chấp nhận chính sách quyền riêng tư và cookie.</strong>
+                                <p>Bạn cần chấp nhận chính sách trước khi có thể kích hoạt xác thực hai yếu tố.</p>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .card {
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .card-header {
+        border-bottom: none;
+    }
+
+    .btn {
+        transition: all 0.3s ease;
+    }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+    .alert {
+        border-radius: 10px;
+    }
+</style>

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<DoAnASP.Models.Song>
+
+<div class="media-grid">
+    @foreach (var item in Model)
+    {
+        <div class="media-card"
+             data-id="@item.SongID"
+             data-audio="/audios/@item.AudioFile"
+             data-title="@item.Title"
+             data-artist="@item.Artist.Name"
+             data-album="@item.Album.Title"
+             data-genre="@item.Genre.Name"
+             data-duration="@item.Duration"
+             data-explicit="@item.IsExplicit.ToString().ToLower()">
+            <div class="media-card-image">
+                <a href="/Home/Details/@item.SongID" class="details-link" data-id="@item.SongID">
+                    <img src="/pictures/@item.Image" alt="@item.Title" />
+                </a>
+                <button class="play-button" onclick="togglePlay(this)">
+                    <i class="bi bi-play-fill"></i>
+                </button>
+            </div>
+            <div class="media-card-content">
+                <h3 class="media-title">@item.Title</h3>
+                <p class="media-description">@item.Artist.Name</p>
+            </div>
+        </div>
+    }
+</div>

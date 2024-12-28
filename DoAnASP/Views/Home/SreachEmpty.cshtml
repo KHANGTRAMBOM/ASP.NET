@@ -1,0 +1,212 @@
+﻿@model SongsAndAlbumsViewModel
+@using DoAnASP.Controllers
+@{
+   int quantity_of_song = 8;
+}
+<section class="featured-section">
+
+
+    <div class="section-header" id="search-title" style="display: none;">
+        <h2>Kết Quả Tìm Kiếm</h2>
+        <!-- Khi người dùng tìm kiếm thì hiển thị tiêu đề, không thì ẩn đi -->
+    </div>
+
+
+    <div class="media-grid" id="search-results">
+        <!-- Kết quả tìm kiếm sẽ được hiển thị tại đây -->
+    </div>
+
+    <div class="section-header">
+        <h2>Đề xuất cho bạn</h2>
+    </div>
+
+    <div class="media-grid">
+        @foreach (var item in Model.Songs.Take(@quantity_of_song))
+        {
+            <div class="media-card"
+                 data-id="@item.SongID"
+                 data-audio="/audios/@item.AudioFile"
+                 data-title="@item.Title"
+                 data-artist="@item.Artist.Name"
+                 data-album="@item.Album.Title"
+                 data-genre="@item.Genre.Name"
+                 data-duration="@item.Duration"
+                 data-explicit="@item.IsExplicit.ToString().ToLower()">
+                <div class="media-card-image">
+                    <a href="/Home/Details/@item.SongID" class="details-link" data-id="@item.SongID">
+                        <img src="/pictures/@item.Image" alt="@item.Title" />
+                    </a>
+                    <button class="play-button" onclick="togglePlay(this)">
+                        <i class="bi bi-play-fill"></i>
+                    </button>
+                </div>
+                <div class="media-card-content">
+                    <h3 class="media-title">@item.Title</h3>
+                    <p class="media-description">@item.Artist.Name</p>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="section-header">
+        <h2>Mới nhất</h2>
+    </div>
+
+    <div class="media-grid">
+        @foreach (var item in Model.Songs.Skip(Math.Max(0, Model.Songs.Count() - quantity_of_song)).Take(quantity_of_song).Reverse())
+        {
+            <div class="media-card"
+                 data-id="@item.SongID"
+                 data-audio="/audios/@item.AudioFile"
+                 data-title="@item.Title"
+                 data-artist="@item.Artist.Name"
+                 data-album="@item.Album.Title"
+                 data-genre="@item.Genre.Name"
+                 data-duration="@item.Duration"
+                 data-explicit="@item.IsExplicit.ToString().ToLower()">
+                <div class="media-card-image">
+                    <a href="/Home/Details/@item.SongID" class="details-link" data-id="@item.SongID">
+                        <img src="/pictures/@item.Image" alt="@item.Title" />
+                    </a>
+                    <button class="play-button" onclick="togglePlay(this)">
+                        <i class="bi bi-play-fill"></i>
+                    </button>
+                </div>
+                <div class="media-card-content">
+                    <h3 class="media-title">@item.Title</h3>
+                    <p class="media-description">@item.Artist.Name</p>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="section-header">
+        <h2>Bảng xếp hạng</h2>
+    </div>
+
+    <div class="media-grid">
+        @foreach (var item in Model.Songs.OrderByDescending(s => s.PlayCount).Take(@quantity_of_song))
+        {
+            <div class="media-card"
+                 data-id="@item.SongID"
+                 data-audio="/audios/@item.AudioFile"
+                 data-title="@item.Title"
+                 data-artist="@item.Artist.Name"
+                 data-album="@item.Album.Title"
+                 data-genre="@item.Genre.Name"
+                 data-duration="@item.Duration"
+                 data-explicit="@item.IsExplicit.ToString().ToLower()">
+                <div class="media-card-image">
+                    <a href="/Home/Details/@item.SongID" class="details-link" data-id="@item.SongID">
+                        <img src="/pictures/@item.Image" alt="@item.Title" />
+                    </a>
+                    <button class="play-button" onclick="togglePlay(this)">
+                        <i class="bi bi-play-fill"></i>
+                    </button>
+                </div>
+                <div class="media-card-content">
+                    <h3 class="media-title">@item.Title</h3>
+                    <p class="media-description">@item.Artist.Name</p>
+                </div>
+            </div>
+        }
+    </div>
+
+    <!-- Yeu thich Section -->
+
+    <div class="section-header">
+        <h2>Yêu thích</h2>
+    </div>
+
+    <div class="media-grid">
+        @foreach (var item in Model.Songs.OrderByDescending(s => s.Likes.Count).Take(@quantity_of_song))
+        {
+            <div class="media-card"
+                 data-id="@item.SongID"
+                 data-audio="/audios/@item.AudioFile"
+                 data-title="@item.Title"
+                 data-artist="@item.Artist.Name"
+                 data-album="@item.Album.Title"
+                 data-genre="@item.Genre.Name"
+                 data-duration="@item.Duration"
+                 data-explicit="@item.IsExplicit.ToString().ToLower()">
+                <div class="media-card-image">
+                    <a href="/Home/Details/@item.SongID" class="details-link" data-id="@item.SongID">
+                        <img src="/pictures/@item.Image" alt="@item.Title" />
+                    </a>
+                    <button class="play-button" onclick="togglePlay(this)">
+                        <i class="bi bi-play-fill"></i>
+                    </button>
+                </div>
+                <div class="media-card-content">
+                    <h3 class="media-title">@item.Title</h3>
+                    <p class="media-description">@item.Artist.Name</p>
+                </div>
+            </div>
+        }
+    </div>
+
+
+
+</section>
+        </div>
+
+<footer class="footer" style="background-color: #1c1c1c">
+    <div class="container" style="background-color: #1c1c1c">
+        <div class="row" >
+            <div class="footer-column">
+                <h3>Công ty</h3>
+                <ul>
+                    <li><a href="#">Giới thiệu</a></li>
+                    <li><a href="#">Việc làm</a></li>
+                    <li><a href="#">For the Record</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Cộng đồng</h3>
+                <ul>
+                    <li><a href="#">Dành cho các Nghệ sĩ</a></li>
+                    <li><a href="#">Nhà phát triển</a></li>
+                    <li><a href="#">Quảng cáo</a></li>
+                    <li><a href="#">Nhà đầu tư</a></li>
+                    <li><a href="#">Nhà cung cấp</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Liên kết hữu ích</h3>
+                <ul>
+                    <li><a href="#">Hỗ trợ</a></li>
+                    <li><a href="#">Ứng dụng Di động Miễn phí</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Các gói của Bunbotify</h3>
+                <ul>
+                    <li><a href="#">Premium Individual</a></li>
+                    <li><a href="#">Premium Student</a></li>
+                    <li><a href="#">Bunbotify Free</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom" style="background-color: #1c1c1c">
+            <ul>
+                <li><a href="#">Pháp lý</a></li>
+                <li><a href="#">Trung tâm an toàn và quyền riêng tư</a></li>
+                <li><a href="#">Chính sách quyền riêng tư</a></li>
+                <li><a href="#">Cookie</a></li>
+                <li><a href="#">Giới thiệu Quảng cáo</a></li>
+                <li><a href="#">Hỗ trợ tiếp cận</a></li>
+            </ul>
+            <p>&copy; 2024 Bunbotify AB</p>
+            <div class="social-icons">
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-twitter"></i></a>
+                <a href="#"><i class="bi bi-facebook"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<div style="height:140px">
+</div>

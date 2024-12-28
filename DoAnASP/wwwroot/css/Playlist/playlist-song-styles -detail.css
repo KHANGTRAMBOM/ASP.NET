@@ -1,0 +1,185 @@
+﻿/* Playlist View Container */
+.playlist-view-container {
+    max-height: 80vh; /* Chiều cao tối đa */
+    padding: 24px; /* Khoảng cách bên trong */
+    background: #121212;
+    color: white; /* Màu chữ */
+    border-radius: 10px; /* Bo góc */
+    box-shadow: 0 4px 60px rgba(0, 0, 0, .5);
+    min-height: 100vh; /* Chiều cao tối thiểu */
+}
+
+
+/* Playlist View Cover */
+.playlist-view-cover {
+    width: 232px;
+    height: 232px;
+    background: #282828;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 60px rgba(0, 0, 0, .5);
+}
+
+.playlist-view-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Playlist View Header */
+.playlist-view-header {
+    display: flex;
+    align-items: flex-end;
+    gap: 24px;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #444;
+}
+
+/* Playlist View Info */
+.playlist-view-info {
+    flex: 1;
+}
+
+.playlist-view-label {
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.playlist-view-title {
+    font-size: 96px;
+    font-weight: 900;
+    margin: 8px 0;
+    line-height: 96px;
+}
+
+.playlist-view-meta {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #a7a7a7;
+    font-size: 14px;
+}
+
+.playlist-view-bullet {
+    margin: 0 4px;
+}
+
+/* Playlist View Controls */
+.playlist-view-controls {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin: 24px 0;
+}
+
+.playlist-view-btn-play {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: none;
+    background: #1ed760;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.playlist-view-btn-play i {
+    font-size: 35px;
+}
+
+.playlist-view-btn-play:hover {
+    transform: scale(1.04);
+    background: #1fdf64;
+}
+
+.playlist-view-btn-menu {
+    background: none;
+    border: none;
+    color: #a7a7a7;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+.playlist-view-btn-menu:hover {
+    color: white;
+}
+
+/* Playlist View Songs Table */
+.playlist-view-songs-table {
+    margin-top: 24px;
+}
+
+.playlist-view-songs-header {
+    display: grid;
+    grid-template-columns: 48px 4fr 3fr 2fr 1fr;
+    padding: 8px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    color: #a7a7a7;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Playlist View Songs List */
+.playlist-view-songs-list {
+    margin-top: 16px;
+    max-height: 60vh; /* Đặt chiều cao tối đa */
+}
+
+
+/* Playlist View Song Row */
+.playlist-view-song-row {
+    display: grid;
+    grid-template-columns: 48px 4fr 3fr 2fr 1fr;
+    padding: 8px 16px;
+    border-radius: 4px;
+    color: #a7a7a7;
+    font-size: 14px;
+    align-items: center;
+}
+
+.playlist-view-song-row:hover {
+    background: rgba(255, 255, 255, .1);
+    color: white;
+}
+
+/* Playlist View Song Title */
+.playlist-view-song-title {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.playlist-view-song-title img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+/* Playlist View Song Info */
+.playlist-view-song-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.playlist-view-song-name {
+    color: white;
+    font-weight: 500;
+}
+
+.playlist-view-song-artist {
+    color: #a7a7a7;
+}
+
+.playlist-view-song-duration {
+    text-align: right;
+}

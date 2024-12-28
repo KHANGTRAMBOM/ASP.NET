@@ -1,0 +1,91 @@
+﻿@page
+@model ResetAuthenticatorModel
+@{
+    ViewData["Title"] = "Đặt lại khóa ứng dụng xác thực";
+    ViewData["ActivePage"] = ManageNavPages.TwoFactorAuthentication;
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-lg border-0 rounded-lg">
+                <div class="card-header bg-warning text-dark">
+                    <h3 class="mb-0">@ViewData["Title"]</h3>
+                </div>
+                <div class="card-body">
+                    <partial name="_StatusMessage" for="StatusMessage" />
+
+                    <div class="alert alert-warning" role="alert">
+                        <h4 class="alert-heading">
+                            <i class="bi bi-exclamation-triangle-fill me-2"></i>Cảnh báo
+                        </h4>
+                        <p>
+                            <strong>Nếu bạn đặt lại khóa ứng dụng xác thực, ứng dụng xác thực của bạn sẽ không hoạt động cho đến khi bạn cấu hình lại.</strong>
+                        </p>
+                        <hr>
+                        <p class="mb-0">
+                            Quá trình này sẽ vô hiệu hóa xác thực hai yếu tố (2FA) cho đến khi bạn xác minh lại ứng dụng xác thực của mình.
+                            Nếu bạn không hoàn tất việc cấu hình ứng dụng, bạn có thể mất quyền truy cập vào tài khoản của mình.
+                        </p>
+                    </div>
+
+                    <form id="reset-authenticator-form" method="post">
+                        <button id="reset-authenticator-button" class="btn btn-danger" type="submit">
+                            <i class="bi bi-arrow-counterclockwise me-2"></i>Đặt lại khóa ứng dụng xác thực
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+        body {
+        background - color: #f8f9fa;
+    }
+
+        .card {
+        border - radius: 15px;
+        overflow: hidden;
+    }
+
+        .card - header {
+        border - bottom: none;
+    }
+
+        .btn {
+        transition: all 0.3s ease;
+    }
+
+        .btn:hover {
+        transform: translateY(-2px);
+        box - shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+
+        .list - group - item {
+        border - left: none;
+        border - right: none;
+    }
+
+        .list - group - item: first - child {
+        border - top: none;
+    }
+
+        .list - group - item: last - child {
+        border - bottom: none;
+    }
+
+    #qrCode {
+        display: flex;
+        justify - content: center;
+        align - items: center;
+        padding: 1rem;
+        background - color: #fff;
+        border - radius: 10px;
+    }
+
+        .alert {
+        border - radius: 10px;
+    }
+</script>

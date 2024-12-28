@@ -1,0 +1,77 @@
+﻿@model DoAnASP.Models.Song
+
+@{
+    ViewData["Title"] = "Xác nhận xóa bài hát";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg border-danger">
+                <div class="card-header bg-danger text-white">
+                    <h3 class="mb-0">@ViewData["Title"]</h3>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-warning" role="alert">
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                        Bạn có chắc chắn muốn xóa bài hát này không? Hành động này không thể hoàn tác.
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col-md-4 text-center mb-3 mb-md-0">
+                            <img src="/pictures/@Model.Image"
+                                 alt="@Model.Title"
+                                 class="img-fluid rounded shadow"
+                                 style="max-height: 200px; object-fit: cover;" />
+                        </div>
+                        <div class="col-md-8">
+                            <h4 class="mb-3">@Model.Title</h4>
+                            <p><strong>Nghệ sĩ:</strong> @Model.Artist.Name</p>
+                            <p><strong>Album:</strong> @Model.Album.Title</p>
+                            <p><strong>Thể loại:</strong> @Model.Genre.Name</p>
+                            <p><strong>Thời lượng:</strong> @(Model.Duration / 60) phút @(Model.Duration % 60) giây</p>
+                            <p><strong>Lượt nghe:</strong> @Model.PlayCount</p>
+                            <p><strong>Nội dung nhạy cảm:</strong> @(Model.IsExplicit ? "Có" : "Không")</p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a asp-action="Index" class="btn btn-secondary">
+                            <i class="bi bi-arrow-left me-2"></i>Trở về danh sách
+                        </a>
+                        <form asp-action="Delete" method="post">
+                            <input type="hidden" asp-for="SongID" />
+                            <button type="submit" class="btn btn-danger">
+                                <i class="bi bi-trash-fill me-2"></i>Xác nhận xóa
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .card {
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .card-header {
+        border-bottom: none;
+    }
+
+    .btn {
+        border-radius: 20px;
+        padding: 8px 20px;
+    }
+
+    .alert {
+        border-radius: 10px;
+    }
+</style>

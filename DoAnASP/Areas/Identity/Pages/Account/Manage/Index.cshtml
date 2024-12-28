@@ -1,0 +1,185 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Hồ sơ người dùng";
+    ViewData["ActivePage"] = ManageNavPages.Index;
+}
+
+<style>
+    .profile-container {
+        max-width: 800px;
+        margin: 2rem auto;
+    }
+
+    .profile-card {
+        background: linear-gradient(145deg, #ffffff, #f5f7fa);
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        overflow: hidden;
+    }
+
+    .profile-header {
+        background: linear-gradient(135deg, #2563eb, #3b82f6);
+        padding: 2rem;
+        position: relative;
+    }
+
+        .profile-header h3 {
+            color: white;
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .profile-header::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: inherit;
+            filter: blur(20px);
+            opacity: 0.6;
+        }
+
+    .profile-body {
+        padding: 2.5rem;
+    }
+
+    .form-group {
+        margin-bottom: 2rem;
+    }
+
+    .form-label {
+        color: #374151;
+        font-weight: 600;
+        font-size: 0.95rem;
+        margin-bottom: 0.75rem;
+        display: block;
+    }
+
+    .form-control {
+        height: 3.5rem;
+        padding: 1rem 1.25rem;
+        border: 2px solid #e5e7eb;
+        border-radius: 12px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+    }
+
+        .form-control:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+        }
+
+        .form-control:disabled {
+            background-color: #f3f4f6;
+            cursor: not-allowed;
+        }
+
+    .input-group {
+        position: relative;
+    }
+
+    .input-group-text {
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        color: #6b7280;
+        z-index: 10;
+    }
+
+    .input-group .form-control {
+        padding-left: 3rem;
+    }
+
+    .btn-save {
+        width: 100%;
+        padding: 1rem;
+        background: linear-gradient(135deg, #2563eb, #3b82f6);
+        border: none;
+        border-radius: 12px;
+        color: white;
+        font-weight: 600;
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        transition: all 0.3s ease;
+    }
+
+        .btn-save:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
+        }
+
+    .text-danger {
+        color: #dc2626;
+        font-size: 0.875rem;
+        margin-top: 0.5rem;
+        display: block;
+    }
+
+    .alert {
+        border-radius: 12px;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .validation-summary {
+        background-color: #eff6ff;
+        border: 2px solid #bfdbfe;
+        border-radius: 12px;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+    }
+</style>
+
+<div class="profile-container">
+    <div class="profile-card">
+        <div class="profile-header">
+            <h3>@ViewData["Title"]</h3>
+        </div>
+
+        <div class="profile-body">
+            <partial name="_StatusMessage" for="StatusMessage" />
+
+            <form id="profile-form" method="post">
+                <div asp-validation-summary="ModelOnly" class="validation-summary" role="alert"></div>
+
+                <div class="form-group">
+                    <label asp-for="Username" class="form-label">Tên người dùng</label>
+                    <input asp-for="Username" class="form-control"
+                           placeholder="Hãy nhập tên người dùng của bạn" disabled />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Input.PhoneNumber" class="form-label">Số điện thoại</label>
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-phone"></i>
+                        </span>
+                        <input asp-for="Input.PhoneNumber" class="form-control"
+                               placeholder="Hãy nhập số điện thoại của bạn" />
+                    </div>
+                    <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+                </div>
+
+                <button id="update-profile-button" type="submit" class="btn btn-save">
+                    <i class="bi bi-check-circle"></i>
+                    <span>Lưu thay đổi</span>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

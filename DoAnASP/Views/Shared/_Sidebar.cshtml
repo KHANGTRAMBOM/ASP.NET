@@ -1,0 +1,105 @@
+﻿@model SongsAndAlbumsViewModel
+@using DoAnASP.Controllers
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<nav class="sidebar">
+    <div class="sidebar-content">
+      
+        <div class="library-container">
+            
+           <div class="library-header">
+                <div class="library-title">
+                    <i class="bi bi-collection"></i>
+                    <span>Thư viện</span>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                                                
+                        <button type="button" id="createPlaylistButton" class="btn btn-dark rounded-circle plus-button"
+                                data-url="@Url.Action("CreatePlaylist", "Playlists")">
+                            <i class="bi bi-plus-lg plus-icon"></i>
+                        </button>
+                    }
+                    else
+                    {
+                         <a asp-area="Identity" asp-page="/Account/Login"> 
+                            <button type="button" class="btn btn-dark rounded-circle plus-button">
+                                <i class="bi bi-plus-lg plus-icon"></i>
+                            </button>
+                        </a>
+                    }                  
+                </div>
+
+           </div>
+
+          
+            <div class="library-content">
+                <div class="playlist-container">
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        var currentUserId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+
+                        var likedSongIds = Model.Likes
+                            .Where(t => t.UserID == currentUserId)
+                            .Select(t => t.SongID)
+                            .ToList();
+
+
+                        @foreach (var song in Model.Songs.Where(s => likedSongIds.Contains(s.SongID)))
+                        {
+                            <a href="/Home/Details/@song.SongID" class="details-link2 playlist-item" data-id="@song.SongID">
+
+                                    <div class="playlist-icon">
+                                         <img src="/pictures/@song.Image" alt="Cover art" />
+                                    </div>
+                                    <div class="playlist-info">
+                                        <div class="playlist-title">@song.Title ❤️</div>
+                                        <div class="playlist-subtitle">Đĩa đơn • @song.Artist.Name</div>
+                                    </div>
+                             </a>
+                        }
+
+
+                        @foreach (var playlist in Model.Playlists)
+                        {
+                            if(playlist.UserID == currentUserId)
+                            {
+                                <a href="/Home/Details2/@playlist.PlaylistID" class="details-link2 playlist-item">
+
+                                    <div class="playlist-icon">
+                                    @if (playlist.PlaylistSongs.Any() && playlist.PlaylistSongs.ToList()[0].Song.Image != null)
+                                    {
+                                            <img src="/pictures/@playlist.PlaylistSongs.ToList()[0].Song.Image" alt="Cover art" />
+                                    }
+                                    else
+                                    {
+                                         <i class="bi bi-music-note-list"></i>
+                                    }
+                                    </div>
+                                    <div class="playlist-info">
+                                        <div class="playlist-title">@playlist.Title</div>
+                                        <div class="playlist-subtitle">Danh sách phát • @User.Identity.Name.Substring(0, User.Identity.Name.IndexOf('@'))</div>
+                                    </div>
+                                </a>
+                            }
+                        }
+                    }
+                    else
+                    {
+                        <div class="create-playlist">
+                            <h5>Tạo playlist đầu tiên của bạn</h5>
+                            <h6>Rất dễ dàng, chúng tôi sẽ giúp bạn</h6>
+                            <a class="create-playlist-button" asp-area="Identity" asp-page="/Account/Login" >Tạo Playlist
+                            </a>
+                        </div>
+                    }
+					
+                </div>
+               
+            </div>
+            <div style="height: 170px">
+            </div>
+        </div>
+    </div>
+</nav>

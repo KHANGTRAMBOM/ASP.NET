@@ -1,0 +1,89 @@
+﻿@model DoAnASP.Models.Artist
+
+@{
+    ViewData["Title"] = "Delete Artist";
+}
+
+<style>
+    .delete-card {
+        max-width: 600px;
+        margin: 0 auto;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        border-radius: 10px;
+    }
+    .delete-card .card-header {
+        background-color: #dc3545;
+        color: white;
+        font-weight: bold;
+    }
+    .artist-avatar {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 2px solid #dc3545;
+    }
+    .info-label {
+        font-weight: bold;
+        color: #495057;
+    }
+    .verified-badge {
+        background-color: #198754;
+        color: white;
+        padding: 2px 8px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="card delete-card">
+        <div class="card-header text-center">
+            <h2 class="mb-0">Xóa nghệ sĩ</h2>
+        </div>
+        <div class="card-body">
+            <div class="text-center mb-4">
+                <img src="@(string.IsNullOrEmpty(Model.Avatar) ? "/images/default-avatar.png" : $"/artists/{Model.Avatar}")"
+                     alt="@Model.Name"
+                     class="artist-avatar mb-3" />
+                <h3>@Model.Name</h3>
+                @if (Model.IsVerified)
+                {
+                    <span class="verified-badge">
+                        <i class="bi bi-check-circle-fill me-1"></i> Verified
+                    </span>
+                }
+            </div>
+
+            <div class="alert alert-danger" role="alert">
+                <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                Bạn có chắc muốn xóa nghệ sĩ này, hành động này sẽ không thể quay lại được ?
+            </div>
+
+            <dl class="row">
+                <dt class="col-sm-3 info-label">Bio:</dt>
+                <dd class="col-sm-9">@Model.Bio</dd>
+
+                <dt class="col-sm-3 info-label">Được tạo:</dt>
+                <dd class="col-sm-9">@Model.CreatedAt.ToString("MMMM, dd, yyyy")</dd>
+            </dl>
+
+            <form asp-action="Delete" class="mt-4">
+                <input type="hidden" asp-for="Id" />
+                <div class="d-flex justify-content-center gap-3">
+                    <button type="submit" class="btn btn-danger">
+                        <i class="bi bi-trash-fill me-2"></i>Xóa
+                    </button>
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="bi bi-x-circle me-2"></i>Trở về trang chủ
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <div style="height: 50px">
+    </div>
+</div>
+

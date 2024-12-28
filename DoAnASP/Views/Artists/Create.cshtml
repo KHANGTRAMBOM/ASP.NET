@@ -1,0 +1,114 @@
+﻿@model DoAnASP.Models.Artist
+
+@{
+    ViewData["Title"] = "Create Artist";
+}
+
+<style>
+    .create-artist-card {
+        max-width: 600px;
+        margin: 0 auto;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        border-radius: 10px;
+    }
+    .create-artist-card .card-header {
+        background-color: #0d6efd;
+        color: white;
+        font-weight: bold;
+    }
+    .avatar-preview {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 2px solid #0d6efd;
+        margin: 0 auto;
+        display: block;
+    }
+    .form-label {
+        font-weight: 500;
+    }
+    .form-control:focus {
+        border-color: #0d6efd;
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="card create-artist-card">
+        <div class="card-header text-center">
+            <h2 class="mb-0">Create New Artist</h2>
+        </div>
+        <div class="card-body">
+            <form asp-action="Create" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+                <div class="mb-3">
+                    <label asp-for="Name" class="form-label"></label>
+                    <input asp-for="Name" class="form-control" placeholder="Nhập tên nghệ sĩ" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Bio" class="form-label"></label>
+                    <textarea asp-for="Bio" class="form-control" rows="4" placeholder="Nhập thông tin bio"></textarea>
+                    <span asp-validation-for="Bio" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Avatar" class="form-label">Avatar</label>
+                    <input name="AvatarUpLoad" id="AvatarUpLoad" type="file" class="form-control" accept=".jpg,.jpeg,.png" onchange="previewImage(event)">
+                    <input asp-for="Avatar" type="hidden" value="abc" />
+                    <span asp-validation-for="Avatar" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3 text-center">
+                    <img id="avatarPreview" src="/images/default-avatar.png" alt="Avatar Preview" class="avatar-preview" />
+                </div>
+
+                <div class="mb-3 form-check">
+                    <input class="form-check-input" asp-for="IsVerified" />
+                    <label class="form-check-label" asp-for="IsVerified">
+                        @Html.DisplayNameFor(model => model.IsVerified)
+                    </label>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="CreatedAt" class="form-label"></label>
+                    <input asp-for="CreatedAt" class="form-control" type="date" />
+                    <span asp-validation-for="CreatedAt" class="text-danger"></span>
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-plus-circle me-2"></i>Thêm nghệ sĩ
+                    </button>
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="bi bi-arrow-left me-2"></i>Trở về trang chủ
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div style="height: 80px">
+
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        function previewImage(event) {
+            var reader = new FileReader();
+            reader.onload = function() {
+                var output = document.getElementById('avatarPreview');
+                output.src = reader.result;
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+}
+

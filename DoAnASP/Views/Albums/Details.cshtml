@@ -1,0 +1,89 @@
+﻿@model DoAnASP.Models.Album
+
+@{
+    ViewData["Title"] = "Album Details";
+}
+
+<link rel="stylesheet" href="~/css/Album/Details.css" />
+
+<div class="album-view-container" style="background-color: #212529;">
+    <!-- Album Header -->
+    <div class="album-view-header">
+        <div class="album-view-cover">
+            @if (!string.IsNullOrEmpty(Model.CoverArt))
+            {
+                <img src="/coverarts/@Model.CoverArt" alt="@Model.Title cover" />
+            }
+            else
+            {
+                <i class="bi bi-music-note-list"></i>
+            }
+        </div>
+        <div class="album-view-info">
+            <span class="album-view-label">Album</span>
+            <h1 class="album-view-title">@Model.Title</h1>
+            <div class="album-view-meta">
+                <span class="album-view-stats">
+                    @Model.Songs?.Count() bài hát
+                </span
+
+                <span class="album-view-bullet">•</span>
+
+                <span class="album-view-stats">
+                    @Model.ReleaseDate.ToString("dd/MM/yyyy")
+                </span>
+            </div>
+            <div class="album-view-details">
+                <p><strong>Nghệ sĩ:</strong> @Model.Artist.Name</p>
+                <p><strong>Thể loại:</strong> @Model.Genre.Name</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Songs Table -->
+    <div class="album-view-songs-table">
+        <div class="album-view-songs-header">
+            <div class="album-view-song-number">#</div>
+            <div class="album-view-song-image">Hình ảnh</div>
+            <div class="album-view-song-title">Tiêu đề</div>
+            <div class="album-view-song-duration">
+                <i class="bi bi-clock"></i>
+            </div>
+        </div>
+
+        <div class="album-view-songs-list">
+            @if (Model.Songs != null && Model.Songs.Any())
+            {
+                @foreach (var song in Model.Songs)
+                {
+                    <div class="album-view-song-row" data-id="@song.SongID" data-audio="/audios/@song.AudioFile">
+                        <div class="album-view-song-number">@(Model.Songs.ToList().IndexOf(song) + 1)</div>
+                        <div class="album-view-song-image">
+                            <img src="/pictures/@song.Image" alt="@song.Title" style="width: 40px; height: 40px; border-radius: 4px; object-fit: cover;" />
+                        </div>
+                        <div class="album-view-song-title">
+                            <div class="album-view-song-info">
+                                <span class="album-view-song-name">@song.Title</span>
+                            </div>
+                        </div>
+                        @{
+                            var totalSeconds = song.Duration;
+                            var minutes = Math.Floor((decimal)totalSeconds / 60);
+                            var seconds = totalSeconds % 60;
+                        }
+                        <div class="album-view-song-duration">@(minutes):@(seconds.ToString("D2"))</div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+
+    <div class="album-view-footer">
+        <a asp-action="Index" class="btn btn-outline-secondary">
+            <i class="bi bi-arrow-left me-2"></i>Trở về trang chủ
+        </a>
+        <a asp-action="Edit" asp-route-id="@Model?.AlbumID" class="btn btn-primary">
+            <i class="bi bi-pencil me-2"></i>Chỉnh sửa
+        </a>
+    </div>
+</div>

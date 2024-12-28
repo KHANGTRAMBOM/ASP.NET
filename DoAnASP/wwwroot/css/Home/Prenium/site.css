@@ -1,0 +1,179 @@
+/* General styles for Premium Page */
+.premium-page-container {
+    font-family: Arial, sans-serif;
+    color: #fff;
+    background: #121212;
+}
+
+.premium-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: rgb(225,97,153);
+    background: linear-gradient(90deg, rgba(225,97,153,1) 12%, rgba(148,187,233,1) 76%);
+}
+
+    .premium-header .premium-logo img {
+        width: 100px;
+    }
+
+.premium-nav a {
+    color: white;
+    margin: 0 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+    .premium-nav a:hover {
+        color: #1CC95A; /* Màu chữ khi di chuột vào */
+    }
+
+/* Hero Section */
+.premium-hero {
+    text-align: center;
+    background: url('path/to/hero-image.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 80px 20px;
+    color: white;
+}
+
+    .premium-hero h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+    }
+
+    .premium-hero p {
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+
+.premium-cta-btn {
+    padding: 15px 30px;
+    background-color: #1db954;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+}
+
+    .premium-cta-btn:hover {
+        background-color: #1ed760;
+    }
+
+/* Benefits Section */
+.premium-benefits {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+    .premium-benefits h2 {
+        font-size: 36px;
+        margin-bottom: 40px;
+    }
+
+.premium-benefits-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.premium-benefit-item {
+    width: 250px;
+    margin: 20px;
+    text-align: center;
+}
+
+    .premium-benefit-item i {
+        font-size: 48px;
+        margin-bottom: 20px;
+    }
+
+    .premium-benefit-item h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .premium-benefit-item p {
+        font-size: 16px;
+        color: #b3b3b3;
+    }
+
+/* Pricing Section */
+.premium-pricing {
+    background-color: #181818;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+    .premium-pricing h2 {
+        font-size: 36px;
+        margin-bottom: 40px;
+    }
+
+.premium-pricing-plans {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.premium-pricing-plan {
+    background-color: #242424;
+    padding: 30px;
+    margin: 20px;
+    width: 250px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+    .premium-pricing-plan h3 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+.premium-signup-btn {
+    padding: 10px 20px;
+    background-color: #1db954;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+}
+
+    .premium-signup-btn:hover {
+        background-color: #1ed760;
+    }
+
+/* FAQ Section */
+.premium-faq {
+    padding: 60px 20px;
+    background-color: #1a1a1a;
+}
+
+    .premium-faq h2 {
+        font-size: 36px;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+.premium-faq-item {
+    margin-bottom: 20px;
+}
+
+    .premium-faq-item h3 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+/* Footer */
+.premium-footer {
+    background-color: #121212;
+    text-align: center;
+    padding: 20px;
+}
+
+    .premium-footer p {
+        font-size: 14px;
+        color: #a7a7a7;
+    }

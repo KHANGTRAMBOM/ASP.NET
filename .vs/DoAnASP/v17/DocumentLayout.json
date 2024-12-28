@@ -1,0 +1,97 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\ASP.NET\\DoAnASP\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{96591D63-0867-4942-A26C-BE0EFF08CBF3}|DoAnASP\\DoAnASP.csproj|d:\\asp.net\\doanasp\\doanasp\\views\\songs\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{96591D63-0867-4942-A26C-BE0EFF08CBF3}|DoAnASP\\DoAnASP.csproj|solutionrelative:doanasp\\views\\songs\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96591D63-0867-4942-A26C-BE0EFF08CBF3}|DoAnASP\\DoAnASP.csproj|d:\\asp.net\\doanasp\\doanasp\\views\\songs\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{96591D63-0867-4942-A26C-BE0EFF08CBF3}|DoAnASP\\DoAnASP.csproj|solutionrelative:doanasp\\views\\songs\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96591D63-0867-4942-A26C-BE0EFF08CBF3}|DoAnASP\\DoAnASP.csproj|d:\\asp.net\\doanasp\\doanasp\\views\\playlists\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{96591D63-0867-4942-A26C-BE0EFF08CBF3}|DoAnASP\\DoAnASP.csproj|solutionrelative:doanasp\\views\\playlists\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96591D63-0867-4942-A26C-BE0EFF08CBF3}|DoAnASP\\DoAnASP.csproj|d:\\asp.net\\doanasp\\doanasp\\views\\songs\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{96591D63-0867-4942-A26C-BE0EFF08CBF3}|DoAnASP\\DoAnASP.csproj|solutionrelative:doanasp\\views\\songs\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\Views\\Playlists\\Details.cshtml",
+              "RelativeDocumentMoniker": "DoAnASP\\Views\\Playlists\\Details.cshtml",
+              "ToolTip": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\Views\\Playlists\\Details.cshtml",
+              "RelativeToolTip": "DoAnASP\\Views\\Playlists\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-28T08:08:11.636Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\Views\\Songs\\Details.cshtml",
+              "RelativeDocumentMoniker": "DoAnASP\\Views\\Songs\\Details.cshtml",
+              "ToolTip": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\Views\\Songs\\Details.cshtml",
+              "RelativeToolTip": "DoAnASP\\Views\\Songs\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-28T08:05:00.643Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\Views\\Songs\\Delete.cshtml",
+              "RelativeDocumentMoniker": "DoAnASP\\Views\\Songs\\Delete.cshtml",
+              "ToolTip": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\Views\\Songs\\Delete.cshtml",
+              "RelativeToolTip": "DoAnASP\\Views\\Songs\\Delete.cshtml",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-28T08:04:21.126Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\Views\\Songs\\Create.cshtml",
+              "RelativeDocumentMoniker": "DoAnASP\\Views\\Songs\\Create.cshtml",
+              "ToolTip": "D:\\ASP.NET\\DoAnASP\\DoAnASP\\Views\\Songs\\Create.cshtml",
+              "RelativeToolTip": "DoAnASP\\Views\\Songs\\Create.cshtml",
+              "ViewState": "AgIAAIEAAAAAAAAAAAAAAAcAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-28T07:59:49.493Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+﻿@page
+@model DeletePersonalDataModel
+@{
+    ViewData["Title"] = "Xóa Dữ Liệu Cá Nhân";
+    ViewData["ActivePage"] = ManageNavPages.PersonalData;
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-lg border-0 rounded-lg">
+                <div class="card-header bg-danger text-white">
+                    <h3 class="mb-0">
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                        @ViewData["Title"]
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-warning" role="alert">
+                        <h4 class="alert-heading">
+                            <i class="bi bi-shield-exclamation me-2"></i>Cảnh báo
+                        </h4>
+                        <p class="mb-0">
+                            <strong>Xóa dữ liệu này sẽ vĩnh viễn xóa tài khoản của bạn và không thể khôi phục.</strong>
+                        </p>
+                    </div>
+
+                    <form id="delete-user" method="post" class="mt-4">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+                        @if (Model.RequirePassword)
+                        {
+                            <div class="mb-4">
+                                <label asp-for="Input.Password" class="form-label">Xác nhận mật khẩu của bạn</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="bi bi-lock-fill"></i>
+                                    </span>
+                                    <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="Nhập mật khẩu của bạn" />
+                                </div>
+                                <span asp-validation-for="Input.Password" class="text-danger"></span>
+                            </div>
+                        }
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-danger btn-lg" type="submit">
+                                <i class="bi bi-trash-fill me-2"></i>Xóa dữ liệu và đóng tài khoản của tôi
+                            </button>
+                            <a href="javascript:history.back()" class="btn btn-outline-secondary">
+                                <i class="bi bi-arrow-left me-2"></i>Quay lại
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+    .card {
+        border-radius: 15px;
+        overflow: hidden;
+    }
+    .card-header {
+        border-bottom: none;
+    }
+    .btn {
+        transition: all 0.3s ease;
+    }
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+    .alert {
+        border-radius: 10px;
+    }
+    .input-group-text {
+        background-color: #f8f9fa;
+    }
+</style>

@@ -1,0 +1,114 @@
+﻿
+.bg-gradient {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    min-height: 100vh;
+}
+
+.bg-gradient-primary {
+    background: linear-gradient(135deg, #20c997 0%, #0dcaf0 100%);
+}
+
+.playlist-song-card {
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+    .playlist-song-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+.info-group {
+    padding: 1rem;
+}
+
+.info-item {
+    padding: 1rem;
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+    .info-item:hover {
+        background-color: rgba(32, 201, 151, 0.05);
+        transform: translateX(5px);
+    }
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+
+.btn-primary {
+    background: linear-gradient(135deg, #20c997 0%, #0dcaf0 100%);
+    border: none;
+}
+
+.btn-outline-secondary:hover {
+    background: linear-gradient(135deg, #6c757d 0%, #5c636a 100%);
+    color: white;
+    border-color: transparent;
+}
+
+.text-primary {
+    color: #20c997 !important;
+}
+
+.card-header .bi {
+    font-size: 1.75rem;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.info-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.info-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.info-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.info-item:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+@media (max-width: 768px) {
+    .container-fluid {
+        padding: 1rem;
+    }
+
+    .card-footer {
+        padding: 1rem;
+    }
+
+    .btn {
+        padding: 0.5rem 1rem;
+    }
+
+    .info-item {
+        padding: 0.75rem;
+    }
+}

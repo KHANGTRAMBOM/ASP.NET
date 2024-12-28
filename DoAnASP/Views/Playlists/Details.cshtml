@@ -1,0 +1,92 @@
+﻿@model DoAnASP.Models.Playlist
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<link rel="stylesheet" href="~/css/Playlist/playlist-song-styles -detail.css" asp-append-version="true" />
+
+<div class="playlist-view-container" style="background-color: #212529;">
+    <!-- Playlist Header -->
+    <div class="playlist-view-header">
+        <div class="playlist-view-cover">
+            @if (Model.PlaylistSongs.Any() && Model.PlaylistSongs.FirstOrDefault().Song.Image != null)
+            {
+                <img src="/pictures/@Model.PlaylistSongs.FirstOrDefault().Song.Image" alt="Cover art" />
+            }
+            else
+            {
+                <i class="bi bi-music-note-list"></i>
+            }
+        </div>
+        <div class="playlist-view-info">
+            <span class="playlist-view-label">Playlist</span>
+            <h1 class="playlist-view-title">@Model.Title</h1>
+            <div class="playlist-view-meta">
+                <span class="playlist-view-bullet">•</span>
+                <span class="playlist-view-stats">
+                    @Model.PlaylistSongs.Count() bài hát,
+                    @{
+                        var totalSeconds = Model.PlaylistSongs.Sum(ps => ps.Song.Duration); // Duration tính bằng giây
+                        var hours = Math.Floor((decimal)totalSeconds / 3600); // Số giờ
+                        var minutes = Math.Floor(((decimal)totalSeconds % 3600) / 60); // Số phút
+                        var seconds = totalSeconds % 60; // Số giây còn lại
+                    }
+                    @(hours > 0 ? $"{hours} giờ " : "")@minutes phút @seconds giây
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Playlist Controls -->
+    <div class="playlist-view-controls">
+        
+    </div>
+
+    <!-- Songs Table -->
+    <div class="playlist-view-songs-table">
+        <div class="playlist-view-songs-header">
+            <div class="playlist-view-song-number">#</div>
+            <div class="playlist-view-song-title">Tiêu đề</div>
+            <div class="playlist-view-song-album">Album</div>
+            <div class="playlist-view-song-date">Ngày thêm</div>
+            <div class="playlist-view-song-duration">
+                <i class="bi bi-clock"></i>
+            </div>
+        </div>
+
+        <div class="playlist-view-songs-list">
+            @foreach (var playlistSong in Model.PlaylistSongs.OrderBy(ps => ps.Position))
+            {
+                <div class="playlist-view-song-row" data-id="@playlistSong.SongID" data-audio="/audios/@playlistSong.Song.AudioFile">
+                    <div class="playlist-view-song-number">@playlistSong.Position</div>
+                    <div class="playlist-view-song-title">
+                        <img src="/pictures/@playlistSong.Song.Image" alt="@playlistSong.Song.Title">
+                        <div class="playlist-view-song-info">
+                            <span class="playlist-view-song-name">@playlistSong.Song.Title</span>
+                            <span class="playlist-view-song-artist">@playlistSong.Song.Artist</span>
+                        </div>
+                    </div>
+                    <div class="playlist-view-song-album">@playlistSong.Song.Album.Title</div>
+                    <div class="playlist-view-song-date">@playlistSong.AddedAt.ToString("dd/MM/yyyy")</div>
+                    @{
+                        totalSeconds = playlistSong.Song.Duration; // Duration tính bằng giây
+                        minutes = Math.Floor(((decimal)totalSeconds % 3600) / 60); // Số phút
+                        seconds = totalSeconds % 60; // Số giây còn lại
+                    }
+                    @if (seconds < 10)
+                    {
+                        var display_second = '0' + ("" + seconds);
+                        <div class="playlist-view-song-duration">@minutes:@display_second</div>
+                    }
+                    else
+                    {
+                        <div class="playlist-view-song-duration">@minutes:@seconds</div>
+                    }
+
+                </div>
+            }
+        </div>
+    </div>
+    <div style="height:100px">
+    </div>

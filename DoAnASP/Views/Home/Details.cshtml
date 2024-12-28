@@ -1,0 +1,125 @@
+﻿@model CustomModel2
+@using DoAnASP.Controllers
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> UserManager
+@inject SignInManager<ApplicationUser> SignInManager
+
+@{
+    Layout = "";
+    ViewData["Title"] = "Chi tiết bài hát";
+}
+
+<div class="song-details-container">
+    <div class="scrollable-content">
+        <div class="container-fluid pt-5">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="media-card">
+                        <div class="row align-items-start">
+                            <div class="col-md-3 mb-4">
+                                <img src="/pictures/@Html.DisplayFor(model => model.song.Image)"
+                                     class="album-cover img-fluid rounded shadow"
+                                     alt="@Model.song.Title" />
+                            </div>
+                            <div class="col-md-9">
+                                <div class="song-info">
+                                    <small class="text-uppercase text-muted mb-2 d-block">Đĩa đơn</small>
+                                    <h1 class="display-3 fw-bold mb-3">@Html.DisplayFor(model => model.song.Title)</h1>
+                                    <div class="d-flex align-items-center mb-3">
+                                        <img src="/artists/@Model.song.Artist.Avatar" 
+                                             class="artist-avatar rounded-circle me-2" 
+                                             alt="@Model.song.Artist.Name" />
+                                        <p class="artist-name mb-0">@Html.DisplayFor(model => model.song.Artist.Name) • 
+                                            <span class="text-muted">
+                                                2019 • 1 bài hát, @string.Format("{0:mm\\:ss}", TimeSpan.FromSeconds(Model.song.Duration))
+                                            </span>
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="controls-section mt-4">
+                                        <div class="d-flex align-items-center">
+                                            <div class="phatnhac" data-id="@Model.song.SongID"
+                                                 data-audio="/audios/@Model.song.AudioFile"
+                                                 data-title="@Model.song.Title"
+                                                 data-artist="@Model.song.Artist.Name"
+                                                 data-album="@Model.song.Album.Title"
+                                                 data-genre="@Model.song.Genre.Name"
+                                                 data-duration="@Model.song.Duration"
+                                                 data-explicit="@Model.song.IsExplicit.ToString().ToLower()">
+                                                 <img src="~/pictures/@Model.song.Image" style="display: none"/>
+                                                <button class="btn btn-play btn-lg me-3" onclick="PlayMusic(this)">
+                                                    <i class="bi bi-play-fill"></i> Phát
+                                                </button>
+                                            </div>
+                                            @{
+                                                var userId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+
+                                                if (string.IsNullOrEmpty(userId))
+                                                {
+                                                    <a  asp-area="Identity" asp-page="/Account/Login">
+                                                        <button id="likeButton" class="btn btn-icon me-3">
+                                                            <i id="heartIcon" class="bi bi-heart fs-4"></i>
+                                                        </button>
+                                                    </a>
+                                                }
+                                                else
+                                                {
+                                                    if (Model.Likes.Any(s => s.UserID == userId && s.SongID == Model.song.SongID))
+                                                    {
+                                                        <button id="likeButton" class="btn btn-icon me-3" data-url="@Url.Action("ToggleLike", "Home")" onclick="toggleLike(@Model.song.SongID)">
+                                                            <i id="heartIcon-@Model.song.SongID" class="bi bi-heart-fill text-danger fs-4"></i>
+                                                        </button>
+                                                    }
+                                                    else
+                                                    {
+                                                        <button id="likeButton" class="btn btn-icon me-3" data-url="@Url.Action("ToggleLike", "Home")" onclick="toggleLike(@Model.song.SongID)">
+                                                            <i id="heartIcon-@Model.song.SongID" class="bi bi-heart fs-4"></i>
+                                                        </button>
+                                                    }
+                                                }
+                                            }
+
+                                            <button class="btn btn-icon me-3" id="add-to-playlist-button" data-bs-toggle="dropdown">
+                                                <i class="bi bi-three-dots fs-4"></i>
+                                            </button>
+
+                                            <div class="dropdown-menu dropdown-menu-dark" id="playlist-dropdown">
+                                                @foreach (var item in Model.Playlists)
+                                                {
+                                                    var currentUserId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+                                                    if (item.UserID == currentUserId)
+                                                    {
+                                                        <a class="dropdown-item add-to-playlist"
+                                                           asp-action="AddPlaylistSong"
+                                                           asp-controller="Home"
+                                                           asp-route-playlistId="@item.PlaylistID"
+                                                           asp-route-songId="@Model.song.SongID">
+                                                            @item.Title
+                                                        </a>
+                                                    }
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="copyright mt-5">
+                                    <small class="text-muted">© 2024 Sony Music Entertainment Hong Kong Ltd.</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+
+</style>
+
+<script>
+   
+</script>
+
+

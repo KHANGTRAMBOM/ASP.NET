@@ -1,0 +1,169 @@
+﻿@model IEnumerable<DoAnASP.Models.Album>
+
+@{
+    ViewData["Title"] = "Quản lý Bộ sưu tập Album";
+}
+
+<div class="container-fluid bg-dark text-white py-5" style="padding: 20px;">
+    <h2 class="mb-4">Quản lý Bộ sưu tập Album</h2>
+
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="input-group">
+                <input type="text" class="form-control" id="searchInput" placeholder="Tìm kiếm album...">
+                <button class="btn btn-outline-light" type="button">
+                    <i class="bi bi-search"></i>
+                </button>
+            </div>
+        </div>
+        <div class="col-md-6 text-md-end mt-3 mt-md-0">
+            <a asp-action="Create" class="btn btn-success">
+                <i class="bi bi-plus-circle"></i> Thêm album mới
+            </a>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-dark table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        <a href="#" class="text-white text-decoration-none" onclick="sortTable(0)">
+                            Tên Album <i class="bi bi-arrow-down-up"></i>
+                        </a>
+                    </th>
+                    <th>Ảnh Bìa</th>
+                    <th>
+                        <a href="#" class="text-white text-decoration-none" onclick="sortTable(2)">
+                            Ngày phát hành <i class="bi bi-arrow-down-up"></i>
+                        </a>
+                    </th>
+                    <th>
+                        <a href="#" class="text-white text-decoration-none" onclick="sortTable(3)">
+                            Nghệ sĩ <i class="bi bi-arrow-down-up"></i>
+                        </a>
+                    </th>
+                    <th>
+                        <a href="#" class="text-white text-decoration-none" onclick="sortTable(4)">
+                            Thể loại <i class="bi bi-arrow-down-up"></i>
+                        </a>
+                    </th>
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Title</td>
+                        <td>
+                            <img src="/coverarts/@item.CoverArt" alt="@item.Title cover" class="img-thumbnail" style="width: 50px; height: 50px; object-fit: cover;">
+                        </td>
+                        <td>@item.ReleaseDate.ToShortDateString()</td>
+                        <td>@item.Artist.Name</td>
+                        <td>@item.Genre.Name</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a class="btn btn-sm btn-outline-warning" asp-action="Edit" asp-route-id="@item.AlbumID">
+                                    <i class="bi bi-pencil"></i>
+                                </a>
+                                <a class="btn btn-sm btn-outline-primary" asp-action="Details" asp-route-id="@item.AlbumID">
+                                    <i class="bi bi-eye"></i>
+                                </a>
+                                <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@item.AlbumID">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="mt-3 text-end">
+        <span class="text-muted">Tổng số Album: @Model.Count()</span>
+    </div>
+</div>
+
+<style>
+    .table-dark {
+        background-color: #1c1c1c;
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: #2c2c2c;
+    }
+
+    .btn-outline-primary, .btn-outline-warning, .btn-outline-danger {
+        border-width: 2px;
+    }
+
+        .btn-outline-primary:hover, .btn-outline-warning:hover, .btn-outline-danger:hover {
+            transform: scale(1.05);
+        }
+
+    .img-thumbnail {
+        background-color: #2c2c2c;
+        border-color: #3c3c3c;
+    }
+</style>
+
+@section Scripts {
+    <script>
+        function sortTable(n) {
+            var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+            table = document.querySelector("table");
+            switching = true;
+            dir = "asc";
+            while (switching) {
+                switching = false;
+                rows = table.rows;
+                for (i = 1; i < (rows.length - 1); i++) {
+                    shouldSwitch = false;
+                    x = rows[i].getElementsByTagName("TD")[n];
+                    y = rows[i + 1].getElementsByTagName("TD")[n];
+                    if (dir === "asc") {
+                        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    } else if (dir === "desc") {
+                        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    }
+                }
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                    switchcount++;
+                } else {
+                    if (switchcount === 0 && dir === "asc") {
+                        dir = "desc";
+                        switching = true;
+                    }
+                }
+            }
+        }
+
+        document.getElementById('searchInput').addEventListener('keyup', function () {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("searchInput");
+            filter = input.value.toUpperCase();
+            table = document.querySelector("table");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        });
+    </script>
+}

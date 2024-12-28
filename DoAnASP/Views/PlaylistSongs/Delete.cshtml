@@ -1,0 +1,80 @@
+﻿@model DoAnASP.Models.PlaylistSong
+
+@{
+    ViewData["Title"] = "Xóa Bài Hát & Playlist";
+}
+<link rel="stylesheet" href="~/css/Playlistsong/custom-styles -delete.css">
+
+<div class="container-fluid py-5 bg-gradient">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-lg border-0 playlist-song-card">
+                <div class="card-header bg-gradient-danger text-white py-3">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <i class="bi bi-trash me-2 fs-4"></i>
+                        <h2 class="card-title mb-0">@ViewData["Title"]</h2>
+                    </div>
+                </div>
+                <div class="card-body p-4">
+                    <div class="alert alert-warning" role="alert">
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                        <strong>Cảnh báo:</strong> Bạn có chắc chắn muốn xóa bài hát này khỏi danh sách phát không? Không thể hoàn tác hành động này.
+                    </div>
+                    <div class="info-group">
+                        <div class="info-item">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="bi bi-hash text-danger me-3 fs-4"></i>
+                                <div>
+                                    <label class="text-muted small">@Html.DisplayNameFor(model => model.Position)</label>
+                                    <p class="mb-0 fw-bold">@Html.DisplayFor(model => model.Position)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="bi bi-calendar-plus text-danger me-3 fs-4"></i>
+                                <div>
+                                    <label class="text-muted small">@Html.DisplayNameFor(model => model.AddedAt)</label>
+                                    <p class="mb-0 fw-bold">@Html.DisplayFor(model => model.AddedAt)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="bi bi-collection-play text-danger me-3 fs-4"></i>
+                                <div>
+                                    <label class="text-muted small">@Html.DisplayNameFor(model => model.Playlist)</label>
+                                    <p class="mb-0 fw-bold">@Html.DisplayFor(model => model.Playlist.Title)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="bi bi-music-note-beamed text-danger me-3 fs-4"></i>
+                                <div>
+                                    <label class="text-muted small">@Html.DisplayNameFor(model => model.Song)</label>
+                                    <p class="mb-0 fw-bold">@Html.DisplayFor(model => model.Song.Title)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <form asp-action="Delete" class="mt-4">
+                        <input type="hidden" asp-for="PlaylistID" />
+                        <input type="hidden" asp-for="SongID" />
+                        <div class="d-grid gap-3">
+                            <button type="submit" class="btn btn-danger d-flex align-items-center justify-content-center">
+                                <i class="bi bi-trash me-2"></i>Xác nhận xóa
+                            </button>
+                            <a asp-action="Index" class="btn btn-outline-secondary d-flex align-items-center justify-content-center">
+                                <i class="bi bi-x-circle me-2"></i>Hủy và trở về trang chủ
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add Bootstrap Icons CSS in your layout or this page -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">

@@ -1,0 +1,138 @@
+﻿
+/* Album View Container */
+.album-view-container {
+    padding: 24px;
+    background: #121212;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 60px rgba(0, 0, 0, .5);
+    min-height: 100vh;
+}
+
+/* Album View Cover */
+.album-view-cover {
+    width: 232px;
+    height: 232px;
+    background: #282828;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 60px rgba(0, 0, 0, .5);
+}
+
+    .album-view-cover img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+/* Album View Header */
+.album-view-header {
+    display: flex;
+    align-items: flex-end;
+    gap: 24px;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #444;
+}
+
+/* Album View Info */
+.album-view-info {
+    flex: 1;
+}
+
+.album-view-label {
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.album-view-title {
+    font-size: 48px;
+    font-weight: 900;
+    margin: 8px 0;
+    line-height: 48px;
+}
+
+.album-view-meta {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #a7a7a7;
+    font-size: 14px;
+}
+
+.album-view-details p {
+    margin: 0;
+    font-size: 16px;
+    color: #ccc;
+}
+
+/* Album View Songs Table */
+.album-view-songs-table {
+    margin-top: 24px;
+}
+
+.album-view-songs-header {
+    display: grid;
+    grid-template-columns: 48px 48px 4fr 1fr;
+    padding: 8px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    color: #a7a7a7;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Album View Songs List */
+.album-view-songs-list {
+    margin-top: 16px;
+    max-height: 60vh;
+}
+
+/* Album View Song Row */
+.album-view-song-row {
+    display: grid;
+    grid-template-columns: 48px 48px 4fr 1fr;
+    padding: 8px 16px;
+    border-radius: 4px;
+    color: #a7a7a7;
+    font-size: 14px;
+    align-items: center;
+}
+
+    .album-view-song-row:hover {
+        background: rgba(255, 255, 255, .1);
+        color: white;
+    }
+
+/* Album View Song Title */
+.album-view-song-title {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.album-view-song-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.album-view-song-name {
+    color: white;
+    font-weight: 500;
+}
+
+.album-view-song-duration {
+    text-align: right;
+}
+
+/* Album View Footer */
+.album-view-footer {
+    margin-top: 24px;
+    display: flex;
+    justify-content: space-between;
+}
+

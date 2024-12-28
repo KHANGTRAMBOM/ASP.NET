@@ -1,0 +1,223 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản lý Âm nhạc</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            overflow: hidden; /* Loại bỏ thanh cuộn không cần thiết */
+        }
+
+        #wrapper {
+            display: flex;
+            height: 100vh; /* Chiều cao toàn màn hình */
+            overflow: hidden;
+        }
+
+        #sidebar-wrapper {
+            width: 250px; /* Chiều rộng của sidebar */
+            height: 100vh; /* Chiều cao toàn màn hình */
+            position: fixed;
+            background-color: #343a40; /* Màu nền của sidebar */
+        }
+
+        #page-content-wrapper {
+            margin-left: 250px; /* Đẩy nội dung chính sang bên phải */
+            width: calc(100% - 250px); /* Chiếm phần còn lại của màn hình */
+            overflow-y: auto;
+            background-color: #212529; /* Cho phép cuộn dọc khi nội dung quá dài */
+        }
+
+            #page-content-wrapper.toggled {
+                margin-left: 0; /* Khi sidebar được thu gọn */
+                width: 100%; /* Nội dung chiếm toàn màn hình */
+            }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 40px;
+            text-align: center;
+        }
+
+        /* Sidebar - Hover effect */
+        #sidebar-wrapper .list-group-item {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+            #sidebar-wrapper .list-group-item:hover {
+                background-color: #495057;
+                color: #ffc107;
+            }
+
+        /* Navbar - Add shadow and smooth hover effect */
+        .navbar {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+            .navbar:hover {
+                background-color: #212529;
+            }
+
+        /* Footer - Styling */
+        footer.footer {
+            background-color: #212529;
+            color: #adb5bd;
+            font-size: 0.9rem;
+        }
+
+            footer.footer:hover {
+                background-color: #343a40;
+                color: #ffffff;
+            }
+
+
+        /* Smooth transition for toggling sidebar */
+        #wrapper {
+            transition: margin-left 0.3s ease;
+        }
+
+
+        #sidebar-wrapper {
+            transition: width 0.3s ease;
+        }
+
+            #sidebar-wrapper .list-group-item-action {
+                background-color: #343A40; /* Màu nền mặc định */
+                color: white; /* Màu chữ mặc định */
+                transition: background-color 0.3s, color 0.3s; /* Thêm hiệu ứng chuyển màu mượt mà */
+            }
+
+                #sidebar-wrapper .list-group-item-action:hover {
+                    background-color: #495057; /* Màu nền khi di chuột vào */
+                    color: white; /* Màu chữ khi di chuột vào */
+                }
+
+
+        #page-content-wrapper.toggled {
+            transition: margin-left 0.3s ease;
+        }
+
+        /* Scrollbar customization */
+        #page-content-wrapper::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        #page-content-wrapper::-webkit-scrollbar-thumb {
+            background: #6c757d;
+            border-radius: 4px;
+        }
+
+            #page-content-wrapper::-webkit-scrollbar-thumb:hover {
+                background: #495057;
+            }
+
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <div class="sidebar-heading text-center py-4 text-white fs-4 fw-bold">
+                <i class="bi bi-music-note-beamed"></i> Quản lý Âm nhạc
+            </div>
+            <div class="list-group list-group-flush">
+                <a asp-controller="Home" asp-action="Index" class="list-group-item list-group-item-action text-white">
+                    <i class="bi bi-house-door me-2"></i> Trang chủ
+                </a>
+                <a asp-controller="Songs" asp-action="Index" class="list-group-item list-group-item-action text-white">
+                    <i class="bi bi-music-note-list me-2"></i> Quản lý Bài hát
+                </a>
+                <a asp-controller="Artists" asp-action="Index" class="list-group-item list-group-item-action text-white">
+                    <i class="bi bi-person me-2"></i> Quản lý Nghệ sĩ
+                </a>
+                <a asp-controller="Albums" asp-action="Index" class="list-group-item list-group-item-action text-white">
+                    <i class="bi bi-vinyl me-2"></i> Quản lý Album
+                </a>
+                <a asp-controller="Genres" asp-action="Index" class="list-group-item list-group-item-action text-white">
+                    <i class="bi bi-tags me-2"></i> Quản lý Thể loại
+                </a>
+                <a asp-controller="Playlists" asp-action="Index" class="list-group-item list-group-item-action text-white">
+                    <i class="bi bi-list-ul me-2"></i> Quản lý Playlist
+                </a>
+                <a asp-controller="PlaylistSongs" asp-action="Index" class="list-group-item list-group-item-action text-white"> 
+                    <i class="bi bi-music-note-beamed me-2"></i> Quản lý bài hát Playlist 
+                </a>
+                <a asp-controller="Likes" asp-action="Index" class="list-group-item list-group-item-action text-white">
+                    <i class="bi bi-hand-thumbs-up me-2"></i> Quản lý Lượt thích
+                </a>
+                <a asp-controller="Follows" asp-action="Index" class="list-group-item list-group-item-action text-white">
+                    <i class="bi bi-person-check me-2"></i> Quản lý Lượt theo dõi
+                </a>
+            </div>
+
+        </div>
+
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
+                <div class="container-fluid">
+                    <button class="btn btn-dark" id="menu-toggle"><i class="bi bi-list"></i></button>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mt-2 mt-lg-0">                         
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                                    <i class="bi bi-person-circle"></i> @User.Identity?.Name.Substring(0, (int)@User.Identity?.Name.IndexOf('@'))
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hồ sơ</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                        <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                            <button class="dropdown-item" type="submit" class="nav-link btn btn-link text-light"> Đăng Xuất</button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="container-fluid" style="padding: 0px;">
+                <main role="main">
+                    @RenderBody()
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer bg-dark text-white py-2">
+        <div class="container" style="background-color: none;">
+            &copy; 2024 - Quản lý Âm nhạc
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+    <script>
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
+</body>
+</html>
